@@ -10,8 +10,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <NavBar />
-       <Body />
+       
+        <NavBar/>
+        <Body/>
+       
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

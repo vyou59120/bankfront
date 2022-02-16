@@ -1,17 +1,18 @@
 
 
-.container 
+.navbarContainer 
 {
-position: absolute;
-width: 296px;
-height: 816px;
-left: 0px;
-top: 220px;
-background: #DBDBDB;
+
+    position: absolute;
+    width: 296px;
+    height: 816px;
+    left: 0px;
+    top: 150px;
+    background: #DBDBDB;
 
 }
 
-.titreNavbar
+.navbarTitle
 {
     position: absolute;
     width: 198px;

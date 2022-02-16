@@ -9,9 +9,9 @@ export default function NavBar() {
     
 
     return (
-         <div className='container'>
-             <div className='NavbarBody'>
-             <h2 className='titreNavbar'>Transaction</h2>
+         <div className='navbarContainer'>
+             <div className='navbarBody'>
+             <h2 className='navbarTitle'>Transaction</h2>
 
              </div>
          </div>

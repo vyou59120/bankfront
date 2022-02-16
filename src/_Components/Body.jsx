@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 import { Link } from 'react-router-dom';
-import './NavBar.css';
+import './Body.css';
 
 
 export default function Body() {
@@ -9,9 +9,9 @@ export default function Body() {
     
 
     return (
-         <div className='container'>
+         <div className='bodyContainer'>
              <div className='BodyPage'>
-             <h2 className='titreBody'>Body</h2>
+             <h2 className='bodyTitle'>Body</h2>
 
              </div>
          </div>

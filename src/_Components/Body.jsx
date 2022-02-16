@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 
-export default function NavBar() {
+export default function Body() {
 
     
     
 
     return (
          <div className='container'>
-             <div className='NavbarBody'>
-             <h2 className='titreNavbar'>Transaction</h2>
+             <div className='BodyPage'>
+             <h2 className='titreBody'>Body</h2>
 
              </div>
          </div>

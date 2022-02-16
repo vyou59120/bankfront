@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 
+
 export default function NavBar() {
 
     
@@ -11,7 +12,7 @@ export default function NavBar() {
     return (
          <div className='navbarContainer'>
              <div className='navbarBody'>
-             <h2 className='navbarTitle'>Transaction</h2>
+             <h2 className='navbarTitle'>Compte/Contrat</h2>
 
              </div>
          </div>

@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './_Components/NavBar';
 import Body from './_Components/Body';
+import Header from './_Components/Header';
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <header className="App-header">
        
+        <Header/>
         <NavBar/>
         <Body/>
        

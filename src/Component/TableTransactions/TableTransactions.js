@@ -24,6 +24,7 @@ import { visuallyHidden } from '@mui/utils';
 import { transactionsService } from '../../Services/transaction_services';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { color } from '@mui/system';
+import { borders } from '@mui/system';
 
 const theme2 = createTheme({
   palette: {
@@ -190,7 +191,7 @@ const EnhancedTableToolbar = (props) => {
 
     return (
         
-        <Toolbar
+        <Toolbar 
             sx={{
                 pl: { sm: 2 },
                 pr: { xs: 1, sm: 1 },
@@ -328,14 +329,15 @@ export default function EnhancedTable() {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
     return (
-        <Box  sx={{ width: '100%', color: 'sucess' }}>
-            <Paper sx={{ width: '100%', mb: 2 }}>
+        <Box  sx={{ width: '100%', color: 'sucess'}}>
+            <Paper id="tableList" sx={{ width: '100%', mb: 2, borderRadius: 6 }}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <TableContainer>
                     <Table
                         sx={{ minWidth: 750 }}
                         aria-labelledby="tableTitle"
                         size={'small'}
+                       
                         
                     >
                         <EnhancedTableHead

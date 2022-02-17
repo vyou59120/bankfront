@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import NavBar from './_Components/NavBar';
 import Body from './_Components/Body';
 import Header from './_Components/Header';

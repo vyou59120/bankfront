@@ -12,26 +12,47 @@ code {
     monospace;
 }
 
-#bodyContainer
+#App
 {
-  background: rgb(243, 243, 243);
+  width: 100%;
 }
 
-#container
+
+#bodyContainer
+{
+  background: rgb(211, 207, 207);
+  width: 86.8%;
+  height: inherit;
+ 
+  
+}
+
+#bodyPage
+{
+  display: flex;
+  height: 100%;
+  
+  background-color: rgb(224, 224, 224);
+  
+}
+
+#upBarContainer
 {
   background: rgb(63, 132, 197);
   height: 150px;
-  justify-content: center;
+  width: 100%;
+  
 }
 
 #navbarContainer
 {
+  
   background: rgb(74, 195, 204);
 }
 
 #tableContainer
 {
-  background: rgb(173, 173, 173);
+  background: rgb(190, 186, 186);
   border-radius: 24px;
 
 }
@@ -48,8 +69,18 @@ code {
 
 #table
 {
-  background: rgb(173, 173, 173);
+  background: rgb(190, 186, 186);
   border-radius: 24px;
+  
+}
+
+#tableHisto
+{
+  background: rgb(190, 186, 186);
+  border-radius: 24px;
+  width: 30%;
+  margin: 5rem;
+  
 }
 
 #bouttonPDF
@@ -61,3 +92,6 @@ code {
 {
   background: rgb(149, 198, 243);
 }
+
+
+

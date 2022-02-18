@@ -81,7 +81,7 @@ function Histogramme() {
                     //});
                     let transactions = mappArray(data);
                     console.log(transactions)
-                    setData(transactions)
+                    setData(transactions) 
                 },
                 error => {
                     console.log(error)

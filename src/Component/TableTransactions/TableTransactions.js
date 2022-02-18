@@ -304,16 +304,16 @@ export default function EnhancedTable() {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
     return (
-        <Box  sx={{ width: '100%', color: 'sucess'}}>
-            <Paper id="tableList" sx={{ width: '100%', mb: 2, borderRadius: 6 }}>
+        <Box sx={{ width: '100%', color: 'sucess' }}>
+            {rows && <Paper id="tableList" sx={{ width: '100%', mb: 2, borderRadius: 6 }}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <TableContainer>
                     <Table
                         sx={{ minWidth: 750 }}
                         aria-labelledby="tableTitle"
                         size={'small'}
-                       
-                        
+
+
                     >
                         <EnhancedTableHead
                             numSelected={selected.length}
@@ -370,8 +370,8 @@ export default function EnhancedTable() {
                                 <TableRow
                                     style={{
                                         height: (dense ? 33 : 53) * emptyRows,
-                                        
- 
+
+
                                     }}
                                 >
                                     <TableCell colSpan={6} />
@@ -389,7 +389,7 @@ export default function EnhancedTable() {
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
-            </Paper>
+            </Paper>}
             {/*<FormControlLabel*/}
             {/*    control={<Switch checked={dense} onChange={handleChangeDense} />}*/}
             {/*    label="Dense padding"*/}

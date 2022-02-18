@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useContext } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,11 +11,18 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { AuthContext } from '../Context/Context'
+import { userService } from '../Services';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
+
+    const { state } = React.useContext(AuthContext);
+    const { dispatch } = React.useContext(AuthContext);
+    /*const [Nom, setNom] = React.useState(state['user']['nom']);*/
+    /*const [Prenom, setPrenom] = React.useState(state['user']['prenom']);*/
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -23,7 +30,7 @@ const ResponsiveAppBar = () => {
         setAnchorElNav(event.currentTarget);
     };
     const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
+       setAnchorElUser(event.currentTarget);
     };
 
     const handleCloseNavMenu = () => {
@@ -33,6 +40,16 @@ const ResponsiveAppBar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const logout = () => {
+        localStorage.removeItem('user');
+        dispatch({ type: "LOGOUT" });
+        setAnchorElUser(null);
+    };
+
+    //logout
+    //.then(dispatch({type: "LOGOUT"}))
+        
 
     return (
         <AppBar id='container' position="static">
@@ -125,15 +142,24 @@ const ResponsiveAppBar = () => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
+                            {/*{settings.map((setting) => (*/}
+                            {/*    <MenuItem key={setting} onClick={handleCloseUserMenu}>*/}
+                            {/*        <Typography textAlign="center">{setting}</Typography>*/}
+                            {/*    </MenuItem>*/}
+                            {/*))}*/}
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <Typography textAlign="center">Profil</Typography>
+                            </MenuItem>
+                            <MenuItem onClick={logout}>
+                                <Typography textAlign="center">Logout</Typography>
+                            </MenuItem>
                         </Menu>
                     </Box>
                 </Toolbar>
             </Container>
+            {state['isLoggedIn'] && <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', p: 2 }}>
+                Bonjour {state['user']['prenom']} {state['user']['nom']}
+            </Box>}
         </AppBar>
     );
 };

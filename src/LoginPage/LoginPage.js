@@ -13,7 +13,9 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import CircularProgress from '@mui/material/CircularProgress';
 import { userService } from '../Services';
+import { AuthContext } from '../Context/Context'
 
 function LoginPage() {
 
@@ -22,25 +24,38 @@ function LoginPage() {
     const [motdepasse, setMotdepasse] = useState("");
     const loggingIn = useState(false);
     const navigate = useNavigate();
+    const { dispatch } = React.useContext(AuthContext);
 
     useEffect(() => {
-
+        dispatch({
+            type: "LOGOUT"
+        })
     }, []);
 
     function handleSubmit(e) {
         e.preventDefault();
         setSubmitted(true);
         userService.Login(email, motdepasse)
-            .then(
-                user => {
-                    if (user != "") {
-                        navigate('/listeTransaction')
-                    }
-                },
-                error => {
-                    console.log(error)
+            .then(user => {
+                if (user != "") {
+                    dispatch({
+                        type: "LOGIN",
+                        payload: user
+                    })
+                    setSubmitted(false);
+                    return user;
                 }
-            );
+                throw user;
+            })
+            .then(user => {
+                if (user != "") {
+                    navigate('/listeTransaction')
+                }
+                throw user;
+            })
+            .catch(error => {
+                /*setSubmitted(false);*/
+            });
     }
 
     return (
@@ -88,7 +103,10 @@ function LoginPage() {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
-                        >
+                    >
+                        {submitted && <Box sx={{ display: 'flex' }}>
+                            <CircularProgress />
+                        </Box>}
                             Sign In
                         </Button>
                         <Grid container>

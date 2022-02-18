@@ -12,18 +12,18 @@ export default function Body() {
     
 
     return (
-        <div id='bodyContainer' className='bodyContainer' >
-            <div id='bodyPage' className='bodyPage'>
+        <div id='bodyContainer'>
+            <div id='bodyPage'>
 
-                <div id='tableContainer' className='bodyTransaction'>
-                    <div id='table' className='transaction'>
-                        <TableTransaction />
+                <div id='tableContainer'>
+                   
+                        <TableTransaction/>
 
-                    </div>
+                    
 
                 </div>
-                <div id='tableHisto' className='transaction'>
-                <Histogramme></Histogramme>
+                <div id='tableHisto'>
+                <Histogramme/>
                 </div>
             </div>
         </div>

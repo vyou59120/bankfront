@@ -92,7 +92,7 @@ function Histogramme() {
     const [data, setData] = React.useState([]);
 
     return (
-        <div className="App">
+        <div id="histoComponent">
             "Soldes des 6 derniers mois"
             <BarChart
                 width={500}

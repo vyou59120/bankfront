@@ -12,86 +12,92 @@ code {
     monospace;
 }
 
-#App
-{
-  width: 100%;
+#App {
+  
+  text-align: center;
 }
 
 
-#bodyContainer
-{
-  background: rgb(211, 207, 207);
-  width: 86.8%;
-  height: inherit;
- 
+#bodyContainer {
+  
+  position: relative;
+  left: 293px;
   
 }
 
-#bodyPage
-{
+#bodyPage {
   display: flex;
   height: 100%;
   
+
   background-color: rgb(224, 224, 224);
-  
+
 }
 
-#upBarContainer
-{
+
+
+#upBarContainer {
   background: rgb(63, 132, 197);
   height: 150px;
-  width: 100%;
+  width: auto;
   
+
 }
 
-#navbarContainer
-{
-  
-  background: rgb(74, 195, 204);
+#navbarContainer {
+
+  background: rgb(170, 177, 207);
+  height: 960px;
 }
 
-#tableContainer
-{
-  background: rgb(190, 186, 186);
+#tableContainer {
+   background: rgb(190, 186, 186);
   border-radius: 24px;
+  margin: 5rem;
+  width: 40%;
+  height: 800px;
+  border-radius: 4px;
+ 
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
 
 }
 
-#tableHead
-{
+#tableHead {
   background: rgb(164, 160, 189);
 }
 
-#tableList
-{
+#tableList {
   background: rgb(200, 205, 230);
 }
 
-#table
-{
+#table {
   background: rgb(190, 186, 186);
-  border-radius: 24px;
-  
+  border-radius: 8px;
+
 }
 
-#tableHisto
-{
+#tableHisto {
   background: rgb(190, 186, 186);
-  border-radius: 24px;
+  border-radius: 8px;
   width: 30%;
-  margin: 5rem;
-  
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
 }
 
-#bouttonPDF
+#histoComponent
 {
+  background: rgb(200, 205, 230);
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: larger;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+}
+
+#bouttonPDF {
   margin-top: 80%;
 }
 
-#toolBar
-{
+#toolBar {
   background: rgb(149, 198, 243);
 }
-
-
-

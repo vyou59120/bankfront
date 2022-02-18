@@ -2,8 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-
 import Body from './Component/Body/Body';
 import Header from './Component/Header/Header';
 import NavBar from './Component/NavBar/NavBar';
@@ -17,28 +15,27 @@ import  EnhancedTable  from './Component/TableTransactions/TableTransactions'
 function App() {
   return (
     
-        <div className="App">
+        <div className="App" id='App'>
           <ResponsiveAppBar />
           {/* <Header/>
         <NavBar/> */}
         
   
-            <div  className="">
-                <div  className="">
-                    <Routes>
-                     
-                      <Route exact path="/login" element={<LoginPage />}/>
-                      
-                      
-                      
-                      
-                    </Routes>
-                    <Body/>
-                    <NavBar/>
-                    
-                </div>
-            </div>
+      <div className="">
+        <div className="">
+          <Routes>
+
+            <Route exact path="/login" element={<LoginPage />} />
+
+          </Routes>
+          
+          <NavBar />
+          <Body />
+          <NavBar />
+
         </div>
+      </div>
+    </div>
       
   );
 }

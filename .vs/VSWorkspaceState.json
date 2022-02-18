@@ -5,8 +5,10 @@
     "\\src\\Component",
     "\\src\\Component\\TableTransactions",
     "\\src\\ListeTransaction",
-    "\\src\\Services"
+    "\\src\\Services",
+    "\\src\\_Components",
+    "\\src\\_Components\\Histogramme"
   ],
-  "SelectedNode": "\\src\\Component\\TableTransactions\\TableTransactions.js",
+  "SelectedNode": "\\src\\Services\\transaction_services.js",
   "PreviewInSolutionExplorer": false
 }

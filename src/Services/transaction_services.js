@@ -2,7 +2,8 @@ import { apiUrl } from '../Environnements';
 import { authHeader } from '../_helpers';
 
 export const transactionsService = {
-    getAll
+    getAll,
+    getByMonth
 };
 
 
@@ -13,6 +14,15 @@ function getAll() {
     };
 
     return fetch(`${apiUrl}/Transactions`, requestOptions).then(handleResponse);
+}
+
+function getByMonth() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Transactions/byMonth`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

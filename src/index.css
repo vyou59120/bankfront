@@ -11,3 +11,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#bodyContainer
+{
+  background: rgb(196, 207, 219);
+}
+
+#container
+{
+  background: rgb(63, 132, 197);
+  height: 150px;
+  justify-content: center;
+}
+
+#navbarContainer
+{
+  background: rgb(87, 128, 148);
+}
+
+#tableContainer
+{
+  background: rgb(173, 173, 173);
+  border-radius: 24px;
+
+}
+
+#tableHead
+{
+  background: rgb(164, 160, 189);
+}
+
+#tableList
+{
+  background: rgb(200, 205, 230);
+}
+
+#table
+{
+  background: rgb(173, 173, 173);
+  border-radius: 24px;
+}
+
+#bouttonPDF
+{
+  margin-top: 80%;
+}
+
+#toolBar
+{
+  background: rgb(63, 132, 197);
+}

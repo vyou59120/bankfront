@@ -94,7 +94,7 @@ function Camembert(props) {
 
     return (
         <Card className="camembert" id='camembert'>
-            <div className="titleCamembert">{props.titre}</div>
+            <div className="titleCamembert"  id='titleCamembert'>{props.titre}</div>
             <PieChart className="contentCamembert" id='contentCamembert' width={300} height={300}>
                 <Pie
                     activeIndex={activeIndex}

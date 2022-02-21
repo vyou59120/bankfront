@@ -69,7 +69,7 @@ function DashboardClient() {
                     <Histogramme />
                     {account && <Solde solde={account[0]['accounts'][0]['solde']} />}
                     <Camembert data={revenus} titre={"Revenus"}/>
-                    <Camembert data={depenses} titre={"Depenses"}/>
+                    <Camembert data={depenses} titre={"Dépenses"}/>
                 </div>
                 {/*<EnhancedTable className='tableContainer' />*/}
             </div>

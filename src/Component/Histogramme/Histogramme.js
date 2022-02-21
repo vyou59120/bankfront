@@ -108,8 +108,8 @@ function Histogramme() {
                 <Tooltip />
                 {/*<Legend />*/}
                 <ReferenceLine y={0} stroke="#000" />
-                <Bar dataKey="credit" fill="#69F85C" />
-                <Bar dataKey="debit" fill="#ff3333" />
+                <Bar dataKey="credit" fill="#28a745" />
+                <Bar dataKey="debit" fill="#DC3545" />
             </BarChart>
             </div>
         </Card>

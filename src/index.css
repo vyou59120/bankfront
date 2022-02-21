@@ -123,6 +123,17 @@ code {
   
 }
 
+/* Camembert css */
+
+#titleCamembert
+{
+  background: rgb(63, 132, 197);
+  font-size: larger;
+  color: rgb(255, 255, 255);
+
+
+}
+
 #camembert
 {
   background: rgb(255, 255, 255);
@@ -147,8 +158,11 @@ code {
 }
 #titleHisto
 {
-  background: rgb(255, 51, 51);
-
+  background: rgb(63, 132, 197);
+  
+  font-size: larger;
+  
+  color: rgb(255, 255, 255);
 
 }
 
@@ -156,7 +170,10 @@ code {
 
 #titleSolde
 {
-  background: rgb(105, 248, 92);
+  background: rgb(63, 132, 197);
+  
+  font-size: larger;
+  color: rgb(255, 255, 255);
 
 }
 
@@ -164,7 +181,9 @@ code {
 
 #valueSolde
 {
-  background: rgb(105, 248, 92);
+  background: rgb(40, 167, 69);
   border-radius: 8px;
   padding: 2rem;
+
+  color: rgb(255, 255, 255);
 }

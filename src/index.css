@@ -23,6 +23,27 @@ code {
   text-align: center;
 }
 
+#logo1
+{
+  background: rgb(255, 255, 255);
+  color: blue;
+  font-size: 2rem;
+  margin-top: 2rem;
+  
+  padding: 1rem;
+  padding-right: 0%;
+}
+#logo2
+{
+  background: rgb(33, 67, 99);
+  font-size: 2rem;
+  margin-top: 2rem;
+ 
+  padding: 1rem;
+  padding-left: 0%;
+}
+
+
 
 #bodyContainer {
   

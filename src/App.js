@@ -45,6 +45,7 @@ function App() {
                                   </PrivateRoute>
                               }
                       />
+                       <Route exact path="/DashboardClient" element={<DashboardClient />} />
                       <Route
                               path="/DashboardClient"
                               element={

@@ -15,7 +15,7 @@ function DashboardClient() {
     const [account, setAccount] = React.useState(null);
     const [revenus, setRevenus] = React.useState(null);
     const [depenses, setDepenses] = React.useState(null);
-
+    console.log(state)
     useEffect(() => {
         getData();
         getRevenus();

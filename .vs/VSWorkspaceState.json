@@ -3,12 +3,13 @@
     "",
     "\\src",
     "\\src\\Component",
-    "\\src\\Component\\TableTransactions",
+    "\\src\\Component\\PrivateRoute",
+    "\\src\\Context",
     "\\src\\ListeTransaction",
-    "\\src\\Services",
-    "\\src\\_Components",
-    "\\src\\_Components\\Histogramme"
+    "\\src\\LoginPage",
+    "\\src\\Reducer",
+    "\\src\\ResponsiveAppBar",
+    "\\src\\_Components"
   ],
-  "SelectedNode": "\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, PureComponent } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
     BarChart,
     Bar,
@@ -11,6 +10,10 @@ import {
     ReferenceLine
 } from "recharts";
 import { transactionsService } from '../../Services/transaction_services';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import './Histogramme.css'
+import Card from '@mui/material/Card';
 
 function mappArray(array) {
     
@@ -22,7 +25,6 @@ function mappArray(array) {
         let credit = 0;
         let mois = array[i]["month"];
         
-        console.log(tabTemp.includes(mois))
         if (tabTemp.includes(mois) == false) {
             tabTemp.push(mois);
 
@@ -69,18 +71,7 @@ function Histogramme() {
         transactionsService.getByMonth()
             .then(
                 data => {
-                    console.log(data)
-                    //let transactions = data;
-                    //transactions.map(function (transaction) {
-                    //    return {
-                    //        name: transaction.Month,
-                    //        uv: transaction.montant,
-                    //        pv: transaction.montant,
-                    //        amt: 2100                          
-                    //    }
-                    //});
                     let transactions = mappArray(data);
-                    console.log(transactions)
                     setData(transactions)
                 },
                 error => {
@@ -92,16 +83,16 @@ function Histogramme() {
     const [data, setData] = React.useState([]);
 
     return (
-        <div className="App">
-            "Soldes des 6 derniers mois"
+        <Card className="histogramme">
+            <div className="titleHisto">BALANCE</div>
             <BarChart
-                width={500}
-                height={300}
+                width={200}
+                height={200}
                 data={data}
                 margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
+                    top: 50,
+                    right: 50,
+                    left: 0,
                     bottom: 5
                 }}
             >
@@ -109,12 +100,12 @@ function Histogramme() {
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
-                <Legend />
+                {/*<Legend />*/}
                 <ReferenceLine y={0} stroke="#000" />
-                <Bar dataKey="pv" fill="#8884d8" />
-                <Bar dataKey="uv" fill="#82ca9d" />
+                <Bar dataKey="pv" fill="#00ff00" />
+                <Bar dataKey="uv" fill="#ff0000" />
             </BarChart>
-        </div>
+        </Card>
     );
 }
 

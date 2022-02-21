@@ -7,7 +7,7 @@ import NavBar from './Component/NavBar/NavBar';
 import { useNavigate } from "react-router-dom";
 import ResponsiveAppBar from './ResponsiveAppBar/ResponsiveAppBar'
 import { LoginPage } from './LoginPage/LoginPage'
-import { Histogramme } from './_Components/Histogramme/Histogramme'
+import { DashboardClient } from './DashboardClient/DashboardClient'
 import  EnhancedTable  from './Component/TableTransactions/TableTransactions'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthContext } from './Context/Context'
@@ -18,6 +18,7 @@ const initialState = {
     isLoggedIn: false,
     user: null,
     token: null,
+    message: ""
 };
 
 function App() {
@@ -27,14 +28,13 @@ function App() {
   return (
       <AuthContext.Provider value={{state,dispatch}}>
         <div className="App">
-          <ResponsiveAppBar />
+              <ResponsiveAppBar />
           {/* <Header/>
         <NavBar/> */}
        
-            <div  className="">
-                <div  className="">
-                    <Routes>
-                     
+            {/*<div  className="">*/}
+            {/*    <div  className="">*/}
+                    <Routes>                   
                       <Route exact path="/login" element={<LoginPage />}/>
                       <Route exact path="/" element={<LoginPage />} />
                       <Route
@@ -44,12 +44,20 @@ function App() {
                                       <EnhancedTable />
                                   </PrivateRoute>
                               }
+                      />
+                      <Route
+                              path="/DashboardClient"
+                              element={
+                                  <PrivateRoute>
+                                      <DashboardClient />
+                                  </PrivateRoute>
+                              }
                        />
                     </Routes>
                     {/*<Body/>*/}
                     {/*<NavBar/>*/}
-                </div>
-            </div>
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
       </AuthContext.Provider>
   );

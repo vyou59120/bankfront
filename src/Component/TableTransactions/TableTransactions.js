@@ -74,7 +74,7 @@ const headCells = [
         id: 'transactionid',
         numeric: false,
         disablePadding: true,
-        label: 'Num transaction',
+        label: 'Num',
     },
     {
         id: 'description',
@@ -304,12 +304,12 @@ export default function EnhancedTable() {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
     return (
-        <Box sx={{ width: '100%', color: 'sucess' }}>
-            {rows && <Paper id="tableList" sx={{ width: '100%', mb: 2, borderRadius: 6 }}>
+        <Box sx={{ color: 'sucess' }}>
+            {rows && <Paper id="tableList" sx={{ width: '70%', mb: 2, borderRadius: 6 }}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <TableContainer>
                     <Table
-                        sx={{ minWidth: 750 }}
+                        sx={{  }}
                         aria-labelledby="tableTitle"
                         size={'small'}
 

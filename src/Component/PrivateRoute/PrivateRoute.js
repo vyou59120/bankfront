@@ -19,12 +19,8 @@ import { AuthContext } from '../../Context/Context'
 const PrivateRoute = ({ children }) => {
     /*const authed = isauth() */
     const { state } = React.useContext(AuthContext);
-    console.log(state)
-    console.log(state['isLoggedIn'])
-    console.log(state['isLoggedIn'] != undefined)
 
     const authed = state['isLoggedIn'] != false
-
 
     return authed ? children : <Navigate to="/login" />;
 }

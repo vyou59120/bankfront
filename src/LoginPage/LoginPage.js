@@ -25,6 +25,7 @@ function LoginPage() {
     const loggingIn = useState(false);
     const navigate = useNavigate();
     const { dispatch } = React.useContext(AuthContext);
+    const { state } = React.useContext(AuthContext);
 
     useEffect(() => {
         dispatch({
@@ -35,31 +36,43 @@ function LoginPage() {
     function handleSubmit(e) {
         e.preventDefault();
         setSubmitted(true);
-        userService.Login(email, motdepasse)
-            .then(user => {
-                if (user != "") {
-                    dispatch({
-                        type: "LOGIN",
-                        payload: user
-                    })
-                    setSubmitted(false);
-                    return user;
-                }
-                throw user;
-            })
-            .then(user => {
-                if (user != "") {
-                    navigate('/listeTransaction')
-                }
-                throw user;
-            })
-            .catch(error => {
-                /*setSubmitted(false);*/
-            });
+        if (email != "" && motdepasse != "") {
+            userService.Login(email, motdepasse)
+                .then(user => {
+                    if (user['id'] != 0) {
+                        dispatch({
+                            type: "LOGIN",
+                            payload: user
+                        })
+                        setSubmitted(false);
+                        return user;
+                    } else {
+                        dispatch({
+                            type: "FAIL-LOGIN",
+                            payload: null
+                        })
+                        setSubmitted(false);
+                    }
+                    throw user;
+                })
+                .then(user => {
+                    if (user['id'] != 0) {
+                        navigate('/DashboardClient')
+                    }
+                    throw user;
+                })
+                .catch(error => {
+                    /*setSubmitted(false);*/
+                });
+        }
     }
 
     return (
         <Container component="main" maxWidth="xs">
+            {state['message'] && <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', p: 2, m: 3 }}>
+                {state['message']}
+            </Box>}
+
                 <CssBaseline />
                 <Box
                     sx={{

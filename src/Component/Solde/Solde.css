@@ -1,0 +1,28 @@
+.css-bhp9pd-MuiPaper-root-MuiCard-root {
+    overflow: visible !important;
+}
+.solde {
+    margin: 20px;
+    min-width: 400px;
+    /*max-height: 200px;*/
+    min-height: 200px;
+}
+
+.contentSoldes {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleSolde {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    padding: 15px;
+    margin-top: -30px;
+    margin-left: 20px;
+    border-radius: 3px;
+    background-color: #00ff00;
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.5);
+}

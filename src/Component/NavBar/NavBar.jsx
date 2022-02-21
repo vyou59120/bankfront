@@ -7,9 +7,6 @@ import Button from '@mui/material/Button';
 
 export default function NavBar() {
 
-    
-    
-
     return (
          <div id='navbarContainer' className='navbarContainer'>
              <div className='navbarBody'>

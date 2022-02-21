@@ -3,7 +3,9 @@ import { authHeader } from '../_helpers';
 
 export const transactionsService = {
     getAll,
-    getByMonth
+    getByMonth,
+    getByCredit,
+    getByDebit
 };
 
 
@@ -23,6 +25,24 @@ function getByMonth() {
     };
 
     return fetch(`${apiUrl}/Transactions/byMonth`, requestOptions).then(handleResponse);
+}
+
+function getByCredit() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Transactions/byCredit`, requestOptions).then(handleResponse);
+}
+
+function getByDebit() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Transactions/byDebit`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

@@ -19,11 +19,18 @@ function Login(Email, Motdepasse) {
         body: JSON.stringify({ Email, Motdepasse })
     };
 
-    return fetch(`${apiUrl}/Users/authenticate`, requestOptions)
-        .then(handleResponse)
+    return fetch(`${apiUrl}/Logins/authenticate`, requestOptions)
+        .then(res => res.json())
         .then(user => {
-            localStorage.setItem('user', JSON.stringify(user));
-            return user;
+            if (user['id'] != 0) {
+                return getByEmail(user['email']).then(user => {
+                    return user
+                })
+            } else {
+                return user
+            }
+            /*localStorage.setItem('user', JSON.stringify(user));*/
+           /* return user;*/
         });
 }
 
@@ -47,6 +54,15 @@ function getById(id) {
     };
 
     return fetch(`${apiUrl}/Users/${id}`, requestOptions).then(handleResponse);
+}
+
+function getByEmail(email) {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Users/email/${email}`, requestOptions).then(handleResponse);
 }
 
 function register(user) {
@@ -80,6 +96,30 @@ function _delete(id) {
 
 function handleResponse(response) {
     return response.text().then(text => {
+        const data = text && JSON.parse(text);
+        if (!response.ok) {
+            if (response.status === 401) {
+                // auto logout if 401 response returned from api
+                logout();
+                /*location.reload(true);*/
+            }
+
+            const error = (data && data.message) || response.statusText;
+            return Promise.reject(error);
+        }
+        
+        return data;
+    });
+}
+
+function handleLogin(response) {
+    console.log("handlelogin")
+    console.log(response)
+    console.log(response.ok)
+    console.log(response.text())
+ 
+    return response.text().then(text => {
+        console.log(text)
         const data = text && JSON.parse(text);
         if (!response.ok) {
             if (response.status === 401) {

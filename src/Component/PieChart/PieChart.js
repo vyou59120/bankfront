@@ -95,15 +95,15 @@ function Camembert(props) {
     return (
         <Card className="camembert" id='camembert'>
             <div className="titleCamembert"  id='titleCamembert'>{props.titre}</div>
-            <PieChart className="contentCamembert" id='contentCamembert' width={400} height={300}>
+            <PieChart className="contentCamembert" id='contentCamembert' width={500} height={300}>
                 <Pie
                     activeIndex={activeIndex}
                     activeShape={renderActiveShape}
                     data={props.data}
-                    cx={250}
-                    cy={90}
-                    innerRadius={35}
-                    outerRadius={70}
+                    cx={180}
+                    cy={120}
+                    innerRadius={60}
+                    outerRadius={80}
                     fill="#3F84C5"
                     dataKey="amount"
                     onMouseEnter={onPieEnter}

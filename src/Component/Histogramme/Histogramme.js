@@ -46,8 +46,8 @@ function mappArray(array) {
 
             let vartemp = {
                 name: mois,
-                uv: debit,
-                pv: credit,
+                debit: debit,
+                credit: credit,
                 amt: 2400
             };
 
@@ -87,13 +87,13 @@ function Histogramme() {
     return (
 
         <Card className="histogramme">
-            <div className="titleHisto">BALANCE</div>
+            <div className="titleHisto" id='titleHisto' >Balance</div>
 
       
-
+            <div id="histoContainer">
             <BarChart
-                width={200}
-                height={200}
+                width={400}
+                height={300}
                 data={data}
                 margin={{
                     top: 50,
@@ -108,9 +108,10 @@ function Histogramme() {
                 <Tooltip />
                 {/*<Legend />*/}
                 <ReferenceLine y={0} stroke="#000" />
-                <Bar dataKey="pv" fill="#00ff00" />
-                <Bar dataKey="uv" fill="#ff0000" />
+                <Bar dataKey="credit" fill="#69F85C" />
+                <Bar dataKey="debit" fill="#ff3333" />
             </BarChart>
+            </div>
         </Card>
     );
 }

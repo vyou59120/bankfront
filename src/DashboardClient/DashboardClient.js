@@ -62,8 +62,8 @@ function DashboardClient() {
     }
 
     return (
-        <div className='dashboardClient'>
-            <NestedList className='menuContainer' />
+        <div className='dashboardClient' >
+            <NestedList className='menuContainer'/>
             <div className='mainContainer' id='mainContainer'>
                 <div className='ClientStats'>
                     <Histogramme />

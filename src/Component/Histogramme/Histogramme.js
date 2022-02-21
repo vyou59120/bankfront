@@ -72,7 +72,9 @@ function Histogramme() {
             .then(
                 data => {
                     let transactions = mappArray(data);
-                    setData(transactions)
+                    console.log(transactions)
+                    setData(transactions) 
+
                 },
                 error => {
                     console.log(error)
@@ -83,8 +85,12 @@ function Histogramme() {
     const [data, setData] = React.useState([]);
 
     return (
+
         <Card className="histogramme">
             <div className="titleHisto">BALANCE</div>
+
+      
+
             <BarChart
                 width={200}
                 height={200}

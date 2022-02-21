@@ -64,7 +64,7 @@ function DashboardClient() {
     return (
         <div className='dashboardClient'>
             <NestedList className='menuContainer' />
-            <div className='mainContainer'>
+            <div className='mainContainer' id='mainContainer'>
                 <div className='ClientStats'>
                     <Histogramme />
                     {account && <Solde solde={account[0]['accounts'][0]['solde']} />}

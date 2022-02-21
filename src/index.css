@@ -43,7 +43,7 @@ code {
 
 
 #upBarContainer {
-  background: rgb(63, 132, 197);
+  
   height: 150px;
   width: auto;
   
@@ -137,15 +137,16 @@ code {
 #camembert
 {
   background: rgb(255, 255, 255);
-  width: 30%;
-  height: 20%;
+
 
 }
 
-#contentCammebert
+#contentCamembert
 {
   justify-content: center;
   padding: 1rem;
+  
+  position: inherit;
 
 }
 /* Histogramme css */
@@ -183,7 +184,7 @@ code {
 {
   background: rgb(40, 167, 69);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1rem;
 
   color: rgb(255, 255, 255);
 }

@@ -158,7 +158,7 @@ const ResponsiveAppBar = () => {
                 </Toolbar>
             </Container>
             
-            {state['isLoggedIn'] && <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', p: 2 }}>
+            {state['isLoggedIn'] && <Box id='titleBonjour' sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', p: 2, }}>
                 Bonjour {state['user']['prenom']} {state['user']['nom']}
             </Box>}
         </AppBar>

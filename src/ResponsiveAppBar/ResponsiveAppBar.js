@@ -106,7 +106,7 @@ const ResponsiveAppBar = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        
+                        {/* Button : compte carte epargner ect.. */}
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
@@ -119,11 +119,11 @@ const ResponsiveAppBar = () => {
                             </Button>
                         ))}
                     </Box>
-
+                         {/* User Icon and menu */}
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            <IconButton id='userIcon' onClick={handleOpenUserMenu} sx={{ p: 4  }}>
+                                <Avatar alt="John Doe" src="/static/images/avatar/2.jpg"></Avatar>
                             </IconButton>
                         </Tooltip>
                         <Menu

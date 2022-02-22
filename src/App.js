@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Body from './Component/Body/Body';
 import Header from './Component/Header/Header';
 import NavBar from './Component/NavBar/NavBar';
-import NotFound from './NotFound/NotFound'
+import NotFound from './NotFound/NotFound';
 import { useNavigate } from "react-router-dom";
 import ResponsiveAppBar from './ResponsiveAppBar/ResponsiveAppBar'
 import { LoginPage } from './LoginPage/LoginPage'

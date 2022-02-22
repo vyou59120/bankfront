@@ -16,7 +16,7 @@ function DashboardClient() {
     const [account, setAccount] = React.useState(null);
     const [revenus, setRevenus] = React.useState(null);
     const [depenses, setDepenses] = React.useState(null);
-
+    console.log(state)
     useEffect(() => {
         getData();
         getRevenus();
@@ -64,14 +64,14 @@ function DashboardClient() {
     }
 
     return (
-        <div className='dashboardClient'>
-            <NestedList className='menuContainer' />
-            <div className='mainContainer'>
-                <div className='ClientStats'>
+        <div className='dashboardClient' >
+            <NestedList className='menuContainer'/>
+            <div className='mainContainer' id='mainContainer'>
+                <div className='ClientStats' >
                     <Histogramme />
                     {account && <Solde solde={account[0]['accounts'][0]['solde']} />}
                     <Camembert data={revenus} titre={"Revenus"}/>
-                    <Camembert data={depenses} titre={"Depenses"}/>
+                    <Camembert data={depenses} titre={"Dépenses"}/>
                 </div>
                 {/*<EnhancedTable className='tableContainer' />*/}
             </div>

@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Body from './Component/Body/Body';
 import Header from './Component/Header/Header';
 import NavBar from './Component/NavBar/NavBar';
@@ -9,7 +10,6 @@ import ResponsiveAppBar from './ResponsiveAppBar/ResponsiveAppBar'
 import { LoginPage } from './LoginPage/LoginPage'
 import { DashboardClient } from './DashboardClient/DashboardClient'
 import  EnhancedTable  from './Component/TableTransactions/TableTransactions'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthContext } from './Context/Context'
 import authentication from './Reducer/authentication.reducer'
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute'
@@ -40,6 +40,7 @@ function App() {
                                   </PrivateRoute>
                               }
                       />
+                       <Route exact path="/DashboardClient" element={<DashboardClient />} />
                       <Route
                               path="/DashboardClient"
                               element={

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Body.css';
 import  TableTransaction  from '../../Component/TableTransactions/TableTransactions';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Histogramme } from '../Histogramme/Histogramme';
 
 
 export default function Body() {
@@ -11,19 +12,20 @@ export default function Body() {
     
 
     return (
-         <div id='bodyContainer' className='bodyContainer' >
-             <div className='BodyPage'>
-             
-             <div id='tableContainer'className='bodyTransaction'>
-                 <div id='table' className='transaction'>
-                 <TableTransaction  />
+        <div id='bodyContainer'>
+            <div id='bodyPage'>
 
-                 </div>
-                  
+                <div id='tableContainer'>
+                   
+                        <TableTransaction/>
 
-             </div>
+                    
 
-             </div>
-         </div>
+                </div>
+                <div id='tableHisto'>
+                <Histogramme/>
+                </div>
+            </div>
+        </div>
         ) 
 }

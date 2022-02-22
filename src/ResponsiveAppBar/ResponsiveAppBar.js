@@ -122,8 +122,8 @@ const ResponsiveAppBar = () => {
                          {/* User Icon and menu */}
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
-                            <IconButton id='userIcon' onClick={handleOpenUserMenu} sx={{ p: 4  }}>
-                                <Avatar alt="John Doe" src="/static/images/avatar/2.jpg"></Avatar>
+                            <IconButton  onClick={handleOpenUserMenu} sx={{ p: 4  }}>
+                            {state['isLoggedIn'] && <Avatar id='avatar' alt="John Doe" src="/static/images/avatar/2.jpg">{state['user']['prenom']} {state['user']['nom']}</Avatar>}
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -158,9 +158,7 @@ const ResponsiveAppBar = () => {
                 </Toolbar>
             </Container>
             
-            {state['isLoggedIn'] && <Box id='titleBonjour' sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', p: 2, }}>
-                Bonjour {state['user']['prenom']} {state['user']['nom']}
-            </Box>}
+            
         </AppBar>
     );
 };

@@ -11,6 +11,7 @@ body {
 
 #root {
     height: 100%;
+   
 }
 
 code {
@@ -56,7 +57,7 @@ code {
 
 #userIcon
 {
-  
+  min-width: 300px;
 
 
 }
@@ -99,7 +100,7 @@ code {
 #navbarContainer {
 
   background: rgb(170, 177, 207);
-  height: 960px;
+  
 }
 
 #tableContainer {
@@ -169,6 +170,7 @@ code {
   background: rgb(219, 219, 219);
   margin: 0px;
   padding: 2rem;
+  height: fit-content;
 }
 
 /* Camembert css */
@@ -240,4 +242,11 @@ code {
   padding: 1rem;
 
   color: rgb(255, 255, 255);
+}
+
+#avatar
+{
+  min-width: 80px;
+  min-height: 80px;
+   
 }

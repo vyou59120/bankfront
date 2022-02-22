@@ -22,8 +22,10 @@ function Login(Email, Motdepasse) {
     return fetch(`${apiUrl}/Logins/authenticate`, requestOptions)
         .then(res => res.json())
         .then(user => {
+            console.log(user)
             if (user['id'] != 0) {
                 return getByEmail(user['email']).then(user => {
+                    localStorage.setItem('user', JSON.stringify(user));
                     return user
                 })
             } else {

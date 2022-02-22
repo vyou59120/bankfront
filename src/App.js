@@ -29,11 +29,6 @@ function App() {
       <AuthContext.Provider value={{state,dispatch}}>
         <div className="App">
               <ResponsiveAppBar />
-          {/* <Header/>
-        <NavBar/> */}
-       
-            {/*<div  className="">*/}
-            {/*    <div  className="">*/}
                     <Routes>                   
                       <Route exact path="/login" element={<LoginPage />}/>
                       <Route exact path="/" element={<LoginPage />} />
@@ -54,10 +49,6 @@ function App() {
                               }
                        />
                     </Routes>
-                    {/*<Body/>*/}
-                    {/*<NavBar/>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
         </div>
       </AuthContext.Provider>
   );

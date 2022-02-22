@@ -11,6 +11,7 @@ import { AuthContext } from '../Context/Context'
 import { transactionsService } from '../Services/transaction_services';
 
 function DashboardClient() {
+
     const { state } = React.useContext(AuthContext);
     const [account, setAccount] = React.useState(null);
     const [revenus, setRevenus] = React.useState(null);
@@ -22,6 +23,7 @@ function DashboardClient() {
         getDepenses();
     }, [])
 
+    console.log(state['token'])
     const getData = () => {
 
         accountService.getById(state['user']['userid'])

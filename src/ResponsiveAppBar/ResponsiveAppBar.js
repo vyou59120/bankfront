@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { AuthContext } from '../Context/Context'
 import { userService } from '../Services';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Compte et Cartes', 'ÉPARGNE', "S'ASSURER", "EMPRUNTER", "SIMULATION ET DEVIS"];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {

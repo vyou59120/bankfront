@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Body from './Component/Body/Body';
 import Header from './Component/Header/Header';
 import NavBar from './Component/NavBar/NavBar';
+import NotFound from './NotFound/NotFound'
 import { useNavigate } from "react-router-dom";
 import ResponsiveAppBar from './ResponsiveAppBar/ResponsiveAppBar'
 import { LoginPage } from './LoginPage/LoginPage'
@@ -26,30 +27,31 @@ function App() {
   const [state, dispatch] = React.useReducer(authentication, initialState);
 
   return (
-      <AuthContext.Provider value={{state,dispatch}}>
+        <AuthContext.Provider value={{state,dispatch}}>
         <div className="App">
-              <ResponsiveAppBar />
-                    <Routes>                   
-                      <Route exact path="/login" element={<LoginPage />}/>
-                      <Route exact path="/" element={<LoginPage />} />
-                      <Route
-                              path="/listeTransaction"
-                              element={
-                                  <PrivateRoute>
-                                      <EnhancedTable />
-                                  </PrivateRoute>
-                              }
-                      />
-                       <Route exact path="/DashboardClient" element={<DashboardClient />} />
-                      <Route
-                              path="/DashboardClient"
-                              element={
-                                  <PrivateRoute>
-                                      <DashboardClient />
-                                  </PrivateRoute>
-                              }
-                       />
-                    </Routes>
+            <ResponsiveAppBar />
+            <Routes>                   
+                <Route exact path="/login" element={<LoginPage />}/>
+                <Route exact path="/" element={<LoginPage />} />
+                <Route exact path="/NotFound" element={<NotFound />} />
+                <Route
+                        path="/listeTransaction"
+                        element={
+                            <PrivateRoute>
+                                <EnhancedTable />
+                            </PrivateRoute>
+                        }
+                />
+                <Route exact path="/DashboardClient" element={<DashboardClient />} />
+                <Route
+                        path="/DashboardClient"
+                        element={
+                            <PrivateRoute>
+                                <DashboardClient />
+                            </PrivateRoute>
+                        }
+                />
+            </Routes>
         </div>
       </AuthContext.Provider>
   );

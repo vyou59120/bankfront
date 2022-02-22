@@ -36,6 +36,7 @@ function LoginPage() {
     function handleSubmit(e) {
         e.preventDefault();
         setSubmitted(true);
+        // navigate('/DashboardClient')
         if (email != "" && motdepasse != "") {
             userService.Login(email, motdepasse)
                 .then(user => {

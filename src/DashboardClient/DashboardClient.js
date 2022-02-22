@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./DashboardClient.css"
+import { useNavigate } from "react-router-dom";
 import NestedList from '../Component/MenuLateral/MenuLateral'
 import EnhancedTable from '../Component/TableTransactions/TableTransactions'
 import { Histogramme } from '../Component/Histogramme/Histogramme'
@@ -9,6 +10,7 @@ import Container from '@mui/material/Container';
 import { accountService } from '../Services/account_services';
 import { AuthContext } from '../Context/Context'
 import { transactionsService } from '../Services/transaction_services';
+import { Navigate } from 'react-router-dom';
 
 function DashboardClient() {
 
@@ -16,6 +18,7 @@ function DashboardClient() {
     const [account, setAccount] = React.useState(null);
     const [revenus, setRevenus] = React.useState(null);
     const [depenses, setDepenses] = React.useState(null);
+    const navigate = useNavigate();
     console.log(state)
     useEffect(() => {
         getData();
@@ -29,10 +32,20 @@ function DashboardClient() {
         accountService.getById(state['user']['userid'])
             .then(
                 data => {
-                    setAccount(data)
+                    console.log(data)
+                    if (data[0]["accounts"].length == 0)
+                    {
+                        setAccount(null)
+                        navigate('/Notfound')
+                    }
+                    else
+                    {
+                        setAccount(data)
+                    }
                 },
                 error => {
                     console.log(error)
+                    
                 }
             );
     }
@@ -59,6 +72,7 @@ function DashboardClient() {
                 },
                 error => {
                     console.log(error)
+                    navigate('/Notfound')
                 }
             );
     }

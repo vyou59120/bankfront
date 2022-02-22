@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 
 
-const renderActiveShape = (props: any) => {
+const renderActiveShape = (props) => {
 
     const RADIAN = Math.PI / 180;
     const {

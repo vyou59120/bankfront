@@ -11,11 +11,13 @@ import EuroIcon from '@mui/icons-material/Euro';
 export default function Solde(props) {
     return (
         <Card className="solde">
-            <div className="titleSolde">SOLDE</div>
+            <div className="titleSolde" id='titleSolde'>Solde</div>
             <CardContent className="contentSoldes">
+                <div id='valueSolde'>
                 <Typography variant="h5" component="div">
-                    {props.solde} euros
+                  Compte Chèque : {props.solde} euros
                 </Typography>
+                </div>
             </CardContent>
             {/*<CardActions>*/}
             {/*    <Button size="small">Learn More</Button>*/}

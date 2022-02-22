@@ -23,6 +23,35 @@ code {
   text-align: center;
 }
 
+#logo1
+{
+  background: rgb(255, 255, 255);
+  color: rgb(25, 118, 210);
+  font-size: 2rem;
+  margin-top: 2rem;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+  
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 1rem;
+  padding-right: 0%;
+}
+#logo2
+{
+  background: rgb(15, 15, 49);
+  font-size: 2rem;
+  margin-top: 2rem;
+
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+ 
+  padding: 1rem;
+  padding-left: 0%;
+}
+
+
 
 #bodyContainer {
   
@@ -40,12 +69,19 @@ code {
 
 }
 
+#titleBonjour
+{
+  font-size: 1.5rem;
+  
 
+
+}
 
 #upBarContainer {
-  background: rgb(63, 132, 197);
-  height: 150px;
+  
+  
   width: auto;
+
   
 
 }
@@ -86,8 +122,7 @@ code {
   background: rgb(190, 186, 186);
   border-radius: 8px;
   width: 30%;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  
 
 }
 
@@ -96,6 +131,7 @@ code {
   background: rgb(200, 205, 230);
   border-radius: 8px;
   padding: 1rem;
+  
   font-size: larger;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
 }
@@ -106,4 +142,92 @@ code {
 
 #toolBar {
   background: rgb(149, 198, 243);
+}
+
+/* DashboardClient css */
+
+#dasboardClient
+{
+
+  background: red;
+  
+
+}
+
+#mainContainer
+{
+  background: rgb(219, 219, 219);
+  margin: 0px;
+  padding: 2rem;
+}
+
+/* Camembert css */
+
+#titleCamembert
+{
+  background: rgb(63, 132, 197);
+  font-size: larger;
+  color: rgb(255, 255, 255);
+
+
+}
+
+#camembert
+{
+  background: rgb(255, 255, 255);
+  min-height: 300px;
+  
+
+}
+
+#contentCamembert
+{
+  justify-content: center;
+  padding: 1rem;
+
+  
+  
+  position: inherit;
+
+}
+/* Histogramme css */
+
+#histoContainer
+{
+  background: rgb(255, 255, 255);
+  
+  border-radius: 8px;
+
+
+}
+#titleHisto
+{
+  background: rgb(63, 132, 197);
+  
+  font-size: larger;
+  
+  color: rgb(255, 255, 255);
+
+}
+
+/* Solde css */
+
+#titleSolde
+{
+  background: rgb(63, 132, 197);
+  
+  font-size: larger;
+  color: rgb(255, 255, 255);
+
+}
+
+
+
+#valueSolde
+{
+  background: rgb(40, 167, 69);
+  border-radius: 8px;
+  padding: 1rem;
+
+  color: rgb(255, 255, 255);
 }

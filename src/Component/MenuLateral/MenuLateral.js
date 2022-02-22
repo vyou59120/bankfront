@@ -13,6 +13,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
 import ArticleIcon from '@mui/icons-material/Article';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import AppsIcon from '@material-ui/icons/Apps';
 import { shadows } from '@mui/system';
 
 export default function NestedList() {
@@ -24,12 +25,12 @@ export default function NestedList() {
 
     return (
         <List
-            sx={{ heigth: '100%', width: '100%', maxWidth: 200, bgcolor: 'background.paper', boxShadow: 3 }}
+            sx={{ heigth: '100%', width: '100%', maxWidth: 230, bgcolor: 'background.paper', boxShadow: 3 }}
             component="nav"
             aria-labelledby="nested-list-subheader"
             subheader={
                 <ListSubheader component="div" id="nested-list-subheader">
-                    Nested List Items
+                    Menu
                 </ListSubheader>
             }
         >
@@ -37,7 +38,13 @@ export default function NestedList() {
                 <ListItemIcon>
                     <ArticleIcon />
                 </ListItemIcon>
-                <ListItemText primary="Compte/Contrat" />
+                <ListItemText primary="Relevé de compte" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <AppsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
             </ListItemButton>
             <ListItemButton>
                 <ListItemIcon>

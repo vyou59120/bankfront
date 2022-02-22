@@ -21,13 +21,21 @@ const ResponsiveAppBar = () => {
 
     const { state } = React.useContext(AuthContext);
     const { dispatch } = React.useContext(AuthContext);
-    /*const [Nom, setNom] = React.useState(state['user']['nom']);*/
-    /*const [Prenom, setPrenom] = React.useState(state['user']['prenom']);*/
+    const [Nom, setNom] = React.useState(null);
+    const [Prenom, setPrenom] = React.useState("prenom");
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [name, setName] = React.useState(null);
+    
+    useEffect(() => {
+       
+        
+        
+      });
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
+       
     };
     const handleOpenUserMenu = (event) => {
        setAnchorElUser(event.currentTarget);
@@ -40,6 +48,10 @@ const ResponsiveAppBar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const avatar = (state) => {
+        setNom(state['user']['nom']);
+    }
 
     const logout = () => {
         localStorage.removeItem('user');
@@ -123,7 +135,7 @@ const ResponsiveAppBar = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Ouvrir options">
                             <IconButton  onClick={handleOpenUserMenu} sx={{ p: 4  }}>
-                            {state['isLoggedIn'] && <Avatar id='avatar' alt="John Doe" src="/static/images/avatar/2.jpg">{state['user']['prenom']} {state['user']['nom']}</Avatar>}
+                            { state['isLoggedIn'] &&<Avatar  id='avatar' alt="John Doe" src="/static/images/avatar/2.jpg">{}{state['user']['prenom']} {state['user']['nom']}</Avatar>}
                             </IconButton>
                         </Tooltip>
                         <Menu

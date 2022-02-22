@@ -33,7 +33,8 @@ const renderActiveShape = (props: any) => {
     const ex = mx + (cos >= 0 ? 1 : -1) * 22;
     const ey = my;
     const textAnchor = cos >= 0 ? "start" : "end";
-
+    const fill2 = '#ffc107';
+    const fill3 = '#17a2b8';
     return (
         <g>
             <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
@@ -43,10 +44,10 @@ const renderActiveShape = (props: any) => {
                 cx={cx}
                 cy={cy}
                 innerRadius={innerRadius}
-                outerRadius={outerRadius}
+                outerRadius={outerRadius + 2}
                 startAngle={startAngle}
                 endAngle={endAngle}
-                fill={fill}
+                fill={fill2}
             />
             <Sector
                 cx={cx}
@@ -68,7 +69,7 @@ const renderActiveShape = (props: any) => {
                 y={ey}
                 textAnchor={textAnchor}
                 fill="#333"
-            >{`${amount} E`}</text>
+            >{`${amount} euros`}</text>
             <text
                 x={ex + (cos >= 0 ? 1 : -1) * 12}
                 y={ey}
@@ -76,7 +77,7 @@ const renderActiveShape = (props: any) => {
                 textAnchor={textAnchor}
                 fill="#999"
             >
-                {`(Rate ${(percent * 100).toFixed(2)}%)`}
+                {`( ${(percent * 100).toFixed(2)}%)`}
             </text>
         </g>
     );
@@ -104,7 +105,7 @@ function Camembert(props) {
                     cy={120}
                     innerRadius={60}
                     outerRadius={80}
-                    fill="#3F84C5"
+                    fill="#17a2b8"
                     dataKey="amount"
                     onMouseEnter={onPieEnter}
                 />

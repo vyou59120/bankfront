@@ -106,7 +106,7 @@ const ResponsiveAppBar = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        
+                        {/* Button : compte carte epargner ect.. */}
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
@@ -119,15 +119,15 @@ const ResponsiveAppBar = () => {
                             </Button>
                         ))}
                     </Box>
-
+                         {/* User Icon and menu */}
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                        <Tooltip title="Ouvrir options">
+                            <IconButton  onClick={handleOpenUserMenu} sx={{ p: 4  }}>
+                            {state['isLoggedIn'] && <Avatar id='avatar' alt="John Doe" src="/static/images/avatar/2.jpg">{state['user']['prenom']} {state['user']['nom']}</Avatar>}
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{ mt: '90px' }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -151,16 +151,14 @@ const ResponsiveAppBar = () => {
                                 <Typography textAlign="center">Profil</Typography>
                             </MenuItem>
                             <MenuItem onClick={logout}>
-                                <Typography textAlign="center">Logout</Typography>
+                                <Typography textAlign="center">Déconnexion</Typography>
                             </MenuItem>
                         </Menu>
                     </Box>
                 </Toolbar>
             </Container>
             
-            {state['isLoggedIn'] && <Box id='titleBonjour' sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', p: 2, }}>
-                Bonjour {state['user']['prenom']} {state['user']['nom']}
-            </Box>}
+            
         </AppBar>
     );
 };

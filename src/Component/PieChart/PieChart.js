@@ -34,7 +34,7 @@ const renderActiveShape = (props: any) => {
     const ey = my;
     const textAnchor = cos >= 0 ? "start" : "end";
     const fill2 = '#ffc107';
-    const fill3 = '#ffc107';
+    const fill3 = '#17a2b8';
     return (
         <g>
             <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
@@ -105,7 +105,7 @@ function Camembert(props) {
                     cy={120}
                     innerRadius={60}
                     outerRadius={80}
-                    fill="#3F84C5"
+                    fill="#17a2b8"
                     dataKey="amount"
                     onMouseEnter={onPieEnter}
                 />

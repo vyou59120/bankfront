@@ -2,14 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\Component",
-    "\\src\\Component\\PrivateRoute",
-    "\\src\\Context",
-    "\\src\\ListeTransaction",
-    "\\src\\LoginPage",
-    "\\src\\Reducer",
-    "\\src\\ResponsiveAppBar",
-    "\\src\\_Components"
+    "\\src\\Services"
   ],
+  "SelectedNode": "\\src\\Services\\user_services.js",
   "PreviewInSolutionExplorer": false
 }

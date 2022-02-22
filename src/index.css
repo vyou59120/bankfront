@@ -26,18 +26,26 @@ code {
 #logo1
 {
   background: rgb(255, 255, 255);
-  color: blue;
+  color: rgb(25, 118, 210);
   font-size: 2rem;
   margin-top: 2rem;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
+  
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   padding: 1rem;
   padding-right: 0%;
 }
 #logo2
 {
-  background: rgb(33, 67, 99);
+  background: rgb(15, 15, 49);
   font-size: 2rem;
   margin-top: 2rem;
+
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
  
   padding: 1rem;
   padding-left: 0%;
@@ -71,8 +79,9 @@ code {
 
 #upBarContainer {
   
-  height: 150px;
+  
   width: auto;
+
   
 
 }

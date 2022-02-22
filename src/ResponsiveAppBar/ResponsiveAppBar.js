@@ -121,13 +121,13 @@ const ResponsiveAppBar = () => {
                     </Box>
                          {/* User Icon and menu */}
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="Ouvrir options">
                             <IconButton  onClick={handleOpenUserMenu} sx={{ p: 4  }}>
                             {state['isLoggedIn'] && <Avatar id='avatar' alt="John Doe" src="/static/images/avatar/2.jpg">{state['user']['prenom']} {state['user']['nom']}</Avatar>}
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{ mt: '90px' }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -151,7 +151,7 @@ const ResponsiveAppBar = () => {
                                 <Typography textAlign="center">Profil</Typography>
                             </MenuItem>
                             <MenuItem onClick={logout}>
-                                <Typography textAlign="center">Logout</Typography>
+                                <Typography textAlign="center">Déconnexion</Typography>
                             </MenuItem>
                         </Menu>
                     </Box>

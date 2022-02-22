@@ -9,6 +9,10 @@ import Container from '@mui/material/Container';
 import { accountService } from '../Services/account_services';
 import { AuthContext } from '../Context/Context'
 import { transactionsService } from '../Services/transaction_services';
+import { getDialogActionsUtilityClass } from '@mui/material';
+
+
+
 
 function DashboardClient() {
 
@@ -16,25 +20,30 @@ function DashboardClient() {
     const [account, setAccount] = React.useState(null);
     const [revenus, setRevenus] = React.useState(null);
     const [depenses, setDepenses] = React.useState(null);
-    console.log(state)
+    const [useriD, setUseriD] = useState(0);
+    
     useEffect(() => {
-        getData();
         getRevenus();
         getDepenses();
+        getLocalstorage();
     }, [])
 
-    console.log(state['token'])
-    const getData = () => {
-
-        accountService.getById(state['user']['userid'])
+    const getData = (useriD) => {
+        console.log(useriD)
+        accountService.getById(useriD)
             .then(
                 data => {
+                    console.log(data)
                     setAccount(data)
                 },
                 error => {
                     console.log(error)
                 }
             );
+    }
+
+    const getLocalstorage = () => {   
+        getData(JSON.parse(localStorage.getItem('user'))['user']['userid']);    
     }
 
     const getRevenus = () => {

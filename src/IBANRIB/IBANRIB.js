@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import "./DashboardDirecteur.css"
+
 import NestedList from '../Component/MenuLateral/MenuLateral'
-import EnhancedTable from '../Component/TableTransactions/TableTransactions'
-import { Histogramme } from '../Component/Histogramme/Histogramme'
-import Camembert from '../Component/PieChart/PieChart'
-import Solde from '../Component/Solde/Solde'
+
 import Container from '@mui/material/Container';
 import { accountService } from '../Services/account_services';
 import { AuthContext } from '../Context/Context'
 import { transactionsService } from '../Services/transaction_services';
 
-function DashboardDirecteur() {
+function IBANRIB() {
 
     const { state } = React.useContext(AuthContext);
- 
+    const [account, setAccount] = React.useState(null);
 
     useEffect(() => {
 
@@ -22,11 +19,19 @@ function DashboardDirecteur() {
     
 
     return (
-        <div className='dashboardClient' >
+        <div id='IBANRIB' >
             <NestedList className='menuContainer' />
-            <h1>IBANRIB</h1>
+            <div id="ibanContainer">
+                
+            
+            <h2>RELEVE D'IDENTITE BANCAIRE</h2>
+            
+            <p>Numero compte</p>
+
+           
+            </div>
         </div>
     )
 }
 
-export { DashboardDirecteur };
+export  default IBANRIB;

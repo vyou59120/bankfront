@@ -98,7 +98,7 @@ function LoginPage() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                        Connexion
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
@@ -106,7 +106,7 @@ function LoginPage() {
                             required
                             fullWidth
                             id="email"
-                            label="Email Address"
+                            label="Adresse mail"
                             name="email"
                             autoComplete="email"
                             autoFocus
@@ -117,7 +117,7 @@ function LoginPage() {
                             required
                             fullWidth
                             name="motdepasse"
-                            label="motdepasse"
+                            label="mot de passe"
                             type="password"
                             id="motdepasse"
                             autoComplete="current-password"
@@ -132,17 +132,17 @@ function LoginPage() {
                         {submitted && <Box sx={{ display: 'flex' }}>
                             <CircularProgress />
                         </Box>}
-                            Sign In
+                            Connexion
                         </Button>
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
-                                    Forgot password?
+                                    Mot de passe oublié
                                 </Link>
                             </Grid>
                             <Grid item>
                                 <Link href="#" variant="body2">
-                                    {"Don't have an account? Sign Up"}
+                                    {"Pas de compte ? Enregistrez vous"}
                                 </Link>
                             </Grid>
                         </Grid>

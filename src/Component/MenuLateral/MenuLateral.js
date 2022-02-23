@@ -55,7 +55,7 @@ export default function NestedList() {
 
     return (
         <List
-            sx={{ heigth: '100%', width: '100%', maxWidth: 230, bgcolor: 'background.paper', boxShadow: 3 }}
+            sx={{ height:'100%', width: '100%', maxWidth: 230, bgcolor: 'background.paper', boxShadow: 3 }}
             component="nav"
             aria-labelledby="nested-list-subheader"
             subheader={

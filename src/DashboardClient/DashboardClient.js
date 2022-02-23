@@ -9,11 +9,14 @@ import Container from '@mui/material/Container';
 import { accountService } from '../Services/account_services';
 import { AuthContext } from '../Context/Context'
 import { transactionsService } from '../Services/transaction_services';
+import { getDialogActionsUtilityClass } from '@mui/material';
+
+
+
 
 function DashboardClient() {
 
     const { state } = React.useContext(AuthContext);
-    console.log(state)
     const [account, setAccount] = React.useState(null);
     const [revenus, setRevenus] = React.useState(null);
     const [depenses, setDepenses] = React.useState(null);

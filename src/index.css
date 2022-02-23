@@ -259,7 +259,7 @@ code {
 {
   
   width: fit-content;
-  height: 50%;
+  height: max-content;
   padding: 3rem;
   margin: 3rem;
   
@@ -286,5 +286,14 @@ code {
  background: rgb(165, 165, 165);
  padding: 5rem;
  margin: 3rem;
+
+}
+
+#textContainer
+{
+  text-align: left;
+  line-height: 0.3rem;
+  
+
 
 }

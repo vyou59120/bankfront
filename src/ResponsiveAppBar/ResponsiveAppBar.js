@@ -26,7 +26,7 @@ const ResponsiveAppBar = () => {
     const [Prenom, setPrenom] = React.useState("prenom");
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [name, setName] = React.useState(null);
+    
     
     useEffect(() => {
        

@@ -170,7 +170,7 @@ code {
   background: rgb(219, 219, 219);
   margin: 0px;
   padding: 2rem;
-  height: fit-content;
+  height: auto;
 }
 
 /* Camembert css */
@@ -246,7 +246,9 @@ code {
 
 #avatar
 {
+  
   min-width: 80px;
   min-height: 80px;
+  font-size: small;
    
 }

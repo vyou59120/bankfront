@@ -21,22 +21,22 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
-import { transactionsService } from '../../Services/transaction_services';
+import { userService } from '../../Services/user_services';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { color } from '@mui/system';
 import { borders } from '@mui/system';
-import { accountService } from '../../Services/account_services';
+import { useNavigate } from "react-router-dom";
 
 const theme2 = createTheme({
-  palette: {
-    primary: {
-      light: '#2e302f',
-      main: '#2e302f',
-      dark: '#2e302f',
-      contrastText: '#fff',
+    palette: {
+        primary: {
+            light: '#2e302f',
+            main: '#2e302f',
+            dark: '#2e302f',
+            contrastText: '#fff',
+        },
+
     },
-   
-  },
 });
 
 
@@ -72,35 +72,47 @@ function stableSort(array, comparator) {
 
 const headCells = [
     {
-        id: 'transactionid',
+        id: 'userid',
         numeric: false,
-        disablePadding: true,
-        label: 'Num',
+        disablePadding: false,
+        label: 'User Id',
     },
     {
-        id: 'description',
+        id: 'nom',
         numeric: true,
         disablePadding: false,
-        label: 'Description',
+        label: 'Nom',
     },
     {
-        id: 'operation',
+        id: 'prenom',
         numeric: true,
         disablePadding: false,
-        label: 'Operation',
+        label: 'Prenom',
     },
     {
-        id: 'montant',
+        id: 'adresse',
         numeric: true,
         disablePadding: false,
-        label: 'Montant',
+        label: 'Adresse',
     },
     {
-        id: 'date',
+        id: 'cp',
         numeric: true,
         disablePadding: false,
-        label: 'Date',
+        label: 'Code Postal',
     },
+    {
+        id: 'ville',
+        numeric: true,
+        disablePadding: false,
+        label: 'Ville',
+    },
+    {
+        id: 'email',
+        numeric: true,
+        disablePadding: false,
+        label: 'Email',
+    }
 ];
 
 function EnhancedTableHead(props) {
@@ -111,9 +123,9 @@ function EnhancedTableHead(props) {
     };
 
     return (
-        
-        <TableHead id ='tableHead'>
-            
+
+        <TableHead id='tableHead'>
+
             <TableRow>
                 <TableCell padding="checkbox"  >
                     {/*<Checkbox*/}
@@ -149,7 +161,7 @@ function EnhancedTableHead(props) {
                 ))}
             </TableRow>
         </TableHead>
-       
+
     );
 }
 
@@ -166,8 +178,8 @@ const EnhancedTableToolbar = (props) => {
     const { numSelected } = props;
 
     return (
-        
-        <Toolbar 
+
+        <Toolbar
             sx={{
                 pl: { sm: 2 },
                 pr: { xs: 1, sm: 1 },
@@ -193,7 +205,7 @@ const EnhancedTableToolbar = (props) => {
                     id="tableTitle"
                     component="div"
                 >
-                    Transactions
+                    Liste Clients
                 </Typography>
             )}
 
@@ -211,7 +223,7 @@ const EnhancedTableToolbar = (props) => {
                 </Tooltip>
             )}
         </Toolbar>
-         
+
     );
 };
 
@@ -219,22 +231,20 @@ EnhancedTableToolbar.propTypes = {
     numSelected: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable(props) {
+export default function ListeClients() {
+
+    const navigate = useNavigate();
 
     useEffect(() => {
-        getData(props.id);
+        getData();
     }, [])
 
-    const getData = (id) => {
+    const getData = () => {
 
-        accountService.getById(id)
+        userService.getAll()
             .then(
                 data => {
-                    let transactions = data[0]['accounts'][0]['transactions'];
-                    transactions.map(function (transaction) {
-                        return transaction.date = new Date(transaction.date).toLocaleDateString("fr")
-                    });
-                    setRows(transactions)
+                    setRows(data)
                 },
                 error => {
                     console.log(error)
@@ -283,6 +293,7 @@ export default function EnhancedTable(props) {
         }
 
         setSelected(newSelected);
+        navigate('/ReleveCompte/' + name)
     };
 
     const handleChangePage = (event, newPage) => {
@@ -305,12 +316,13 @@ export default function EnhancedTable(props) {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
     return (
-        <Box  sx={{ width: '100%', color: 'sucess' }}>
+        <div className='mainContainer' id='mainContainer'>
+        <Box sx={{ width: '100%', color: 'sucess' }}>
             <Paper id="tableList" sx={{ width: '100%', mb: 2, borderRadius: 1 }}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <TableContainer>
                     <Table
-                        sx={{  }}
+                        sx={{}}
                         aria-labelledby="tableTitle"
                         size={'small'}
 
@@ -336,11 +348,11 @@ export default function EnhancedTable(props) {
                                     return (
                                         <TableRow
                                             hover
-                                            onClick={(event) => handleClick(event, row.transactionid)}
+                                            onClick={(event) => handleClick(event, row.userid)}
                                             role="checkbox"
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}
-                                            key={row.transactionid}
+                                            key={row.userid}
                                             selected={isItemSelected}
                                         >
                                             <TableCell padding="checkbox">
@@ -358,12 +370,14 @@ export default function EnhancedTable(props) {
                                                 scope="row"
                                                 padding="none"
                                             >
-                                                {row.transactionid}
+                                                {row.userid}
                                             </TableCell>
-                                            <TableCell align="right">{row.description}</TableCell>
-                                            <TableCell align="right">{row.operation}</TableCell>
-                                            <TableCell align="right">{row.montant}</TableCell>
-                                            <TableCell align="right">{row.date}</TableCell>
+                                            <TableCell align="right">{row.nom}</TableCell>
+                                            <TableCell align="right">{row.prenom}</TableCell>
+                                            <TableCell align="right">{row.adresse}</TableCell>
+                                            <TableCell align="right">{row.cp}</TableCell>
+                                            <TableCell align="right">{row.ville}</TableCell>
+                                            <TableCell align="right">{row.email}</TableCell>
                                         </TableRow>
                                     );
                                 })}
@@ -395,6 +409,7 @@ export default function EnhancedTable(props) {
             {/*    control={<Switch checked={dense} onChange={handleChangeDense} />}*/}
             {/*    label="Dense padding"*/}
             {/*/>*/}
-        </Box>
+            </Box>
+        </div>
     );
 }

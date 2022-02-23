@@ -72,7 +72,6 @@ function Histogramme() {
             .then(
                 data => {
                     let transactions = mappArray(data);
-                    console.log(transactions)
                     setData(transactions) 
 
                 },

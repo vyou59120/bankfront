@@ -20,6 +20,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const ResponsiveAppBar = () => {
 
     const { state } = React.useContext(AuthContext);
+
     const { dispatch } = React.useContext(AuthContext);
     /*const [Nom, setNom] = React.useState(state['user']['nom']);*/
     /*const [Prenom, setPrenom] = React.useState(state['user']['prenom']);*/

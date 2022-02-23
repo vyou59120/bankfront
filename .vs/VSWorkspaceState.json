@@ -2,8 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\Component",
+    "\\src\\Component\\ListeClients",
+    "\\src\\Component\\MenuLateral",
+    "\\src\\Component\\PrivateRoute",
+    "\\src\\DashboardClient",
+    "\\src\\ReleveCompte",
     "\\src\\Services"
   ],
-  "SelectedNode": "\\src\\Services\\user_services.js",
+  "SelectedNode": "\\src\\Component\\ListeClients\\ListeClients.js",
   "PreviewInSolutionExplorer": false
 }

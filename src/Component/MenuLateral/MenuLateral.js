@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import Collapse from '@mui/material/Collapse';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
@@ -15,12 +18,39 @@ import ArticleIcon from '@mui/icons-material/Article';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import AppsIcon from '@material-ui/icons/Apps';
 import { shadows } from '@mui/system';
+import { AuthContext } from '../../Context/Context'
 
 export default function NestedList() {
+
+    const { state } = React.useContext(AuthContext);
+ 
+    const [listeClients, setListeClients] = React.useState(true);
     const [open, setOpen] = React.useState(true);
+    const navigate = useNavigate();
 
     const handleClick = () => {
         setOpen(!open);
+    };
+
+    const handleReleve = () => {
+        navigate('/ReleveCompte/' + state['user']['id'])
+        setListeClients(false);
+    };
+
+    const handleDashboard = () => {
+        navigate('/DashboardClient')
+    };
+
+    const handleClients = () => {
+        navigate('/DashboardClient')
+    };
+
+    const handleCreateClient = () => {
+        navigate('/DashboardClient')
+    };
+
+    const handleListeClients = () => {
+        navigate('/DashboardCommercial')
     };
 
     return (
@@ -34,24 +64,38 @@ export default function NestedList() {
                 </ListSubheader>
             }
         >
-            <ListItemButton>
+            {state['user']['role'] == "CLIENT" && <ListItemButton onClick={handleReleve}>
                 <ListItemIcon>
                     <ArticleIcon />
                 </ListItemIcon>
                 <ListItemText primary="Relevé de compte" />
-            </ListItemButton>
-            <ListItemButton>
+            </ListItemButton>}
+            {state['user']['role'] == "CLIENT" && <ListItemButton onClick={handleDashboard}>
                 <ListItemIcon>
                     <AppsIcon />
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
-            </ListItemButton>
-            <ListItemButton>
+            </ListItemButton>}
+            {state['user']['role'] == "CLIENT" && <ListItemButton>
                 <ListItemIcon>
                     <PictureAsPdfIcon />
                 </ListItemIcon>
                 <ListItemText primary="IBAN/RIB" />
-            </ListItemButton>
+            </ListItemButton>}
+            {(state['user']['role'] == "STAFF" || state['user']['role'] == "ADMIN") &&
+             <ListItemButton onClick={handleListeClients}>
+                <ListItemIcon>
+                    <FormatListNumberedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Liste Clients" />
+            </ListItemButton>}
+            {(state['user']['role'] == "STAFF" || state['user']['role'] == "ADMIN") &&
+            <ListItemButton onClick={handleCreateClient}>
+                <ListItemIcon>
+                    <FormatListNumberedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Créer Client" />
+            </ListItemButton>}
             <ListItemButton onClick={handleClick}>
                 <ListItemIcon>
                     <DraftsIcon />

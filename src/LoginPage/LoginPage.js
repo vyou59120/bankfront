@@ -57,7 +57,19 @@ function LoginPage() {
                 })
                 .then(user => {
                     if (user['id'] != 0) {
-                        navigate('/DashboardClient')
+                        switch (user['role'] ) {
+                            case "ADMIN":
+                                navigate('/DashboardDirecteur');
+                                break;
+                            case "STAFF":
+                                navigate('/DashboardCommercial');
+                                break;
+                            case "CLIENT":
+                                navigate('/DashboardClient');
+                                break;
+                            default:
+                                return state
+                        }
                     }
                     throw user;
                 })

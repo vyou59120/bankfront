@@ -22,12 +22,30 @@ function Login(Email, Motdepasse) {
     return fetch(`${apiUrl}/Logins/authenticate`, requestOptions)
         .then(res => res.json())
         .then(user => {
-            console.log(user)
             if (user['id'] != 0) {
-                return getByEmail(user['email']).then(user => {
-                    localStorage.setItem('user', JSON.stringify(user));
-                    return user
-                })
+                localStorage.setItem('token', JSON.stringify(user['token']));
+                switch (user['role']) {
+                    case 'CLIENT':
+                        return getClientByEmail(user['email']).then(user => {
+                            localStorage.setItem('user', JSON.stringify(user));
+                            return user
+                        })
+                        break;
+                    case 'STAFF':
+                        return getCommercialByEmail(user['email']).then(user => {
+                            localStorage.setItem('user', JSON.stringify(user));
+                            return user
+                        })
+                    case 'ADMIN':
+                        return getDirecteurByEmail(user['email']).then(user => {
+                            localStorage.setItem('user', JSON.stringify(user));
+                            return user
+                        })
+                        break;
+                    default:
+                        console.log("sorry");
+                        break;
+                }
             } else {
                 return user
             }
@@ -38,6 +56,7 @@ function Login(Email, Motdepasse) {
 
 function logout() {
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
 }
 
 function getAll() {
@@ -58,13 +77,31 @@ function getById(id) {
     return fetch(`${apiUrl}/Users/${id}`, requestOptions).then(handleResponse);
 }
 
-function getByEmail(email) {
+function getClientByEmail(email) {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
     return fetch(`${apiUrl}/Users/email/${email}`, requestOptions).then(handleResponse);
+}
+
+function getCommercialByEmail(email) {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Commercials/email/${email}`, requestOptions).then(handleResponse);
+}
+
+function getDirecteurByEmail(email) {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Directeurs/email/${email}`, requestOptions).then(handleResponse);
 }
 
 function register(user) {

@@ -17,10 +17,15 @@ import { AuthContext } from '../../Context/Context'
 //}
 
 const PrivateRoute = ({ children }) => {
-    /*const authed = isauth() */
-    const { state } = React.useContext(AuthContext);
 
-    const authed = state['isLoggedIn'] != false
+    let user = JSON.parse(localStorage.getItem('user'));
+    let token = JSON.parse(localStorage.getItem('token'));
+
+    //const { state } = React.useContext(AuthContext);
+
+    /*const authed = state['isLoggedIn'] != false*/
+
+    const authed = user != undefined
 
     return authed ? children : <Navigate to="/login" />;
 }

@@ -73,7 +73,7 @@ function IBANRIB() {
             <hr/>
 
             <h4>IBAN</h4>
-            <p>FR59 {codeBank} 000{cleRIB} 000{account[0]['accounts'][0]['numaccount']} {cleRIB}</p>
+            {account && <p>FR59 {codeBank} 000{cleRIB} {account[0]['accounts'][0]['numaccount']} {cleRIB}</p>}
             <h4>CODE BIC /CODE SWIFT</h4>
             <p>VEROBANKFRTT765</p>
 

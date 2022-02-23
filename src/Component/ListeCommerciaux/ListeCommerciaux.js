@@ -72,10 +72,10 @@ function stableSort(array, comparator) {
 
 const headCells = [
     {
-        id: 'userid',
+        id: 'commercialid',
         numeric: false,
         disablePadding: false,
-        label: 'User Id',
+        label: 'Commercial Id',
     },
     {
         id: 'nom',
@@ -205,7 +205,7 @@ const EnhancedTableToolbar = (props) => {
                     id="tableTitle"
                     component="div"
                 >
-                    Liste Clients
+                    Liste Commerciaux
                 </Typography>
             )}
 
@@ -231,7 +231,7 @@ EnhancedTableToolbar.propTypes = {
     numSelected: PropTypes.number.isRequired,
 };
 
-export default function ListeClients() {
+export default function ListeCommerciaux() {
 
     const navigate = useNavigate();
 
@@ -241,14 +241,9 @@ export default function ListeClients() {
 
     const getData = () => {
 
-        userService.getAll()
+        userService.getAllCommerciaux()
             .then(
                 data => {
-                    console.log(data)
-                    //let transactions = data;
-                    //transactions.map(function (transaction) {
-                    //    return transaction.date = new Date(transaction.date).toLocaleDateString("fr")
-                    //});
                     setRows(data)
                 },
                 error => {
@@ -322,98 +317,98 @@ export default function ListeClients() {
 
     return (
         <div className='mainContainer' id='mainContainer'>
-        <Box sx={{ width: '100%', color: 'sucess' }}>
-            <Paper id="tableList" sx={{ width: '100%', mb: 2, borderRadius: 1 }}>
-                <EnhancedTableToolbar numSelected={selected.length} />
-                <TableContainer>
-                    <Table
-                        sx={{}}
-                        aria-labelledby="tableTitle"
-                        size={'small'}
+            <Box sx={{ width: '100%', color: 'sucess' }}>
+                <Paper id="tableList" sx={{ width: '100%', mb: 2, borderRadius: 1 }}>
+                    <EnhancedTableToolbar numSelected={selected.length} />
+                    <TableContainer>
+                        <Table
+                            sx={{}}
+                            aria-labelledby="tableTitle"
+                            size={'small'}
 
 
-                    >
-                        <EnhancedTableHead
-                            numSelected={selected.length}
-                            order={order}
-                            orderBy={orderBy}
-                            onSelectAllClick={handleSelectAllClick}
-                            onRequestSort={handleRequestSort}
-                            rowCount={rows.length}
-                        />
-                        <TableBody>
-                            {/* if you don't need to support IE11, you can replace the `stableSort` call with:
+                        >
+                            <EnhancedTableHead
+                                numSelected={selected.length}
+                                order={order}
+                                orderBy={orderBy}
+                                onSelectAllClick={handleSelectAllClick}
+                                onRequestSort={handleRequestSort}
+                                rowCount={rows.length}
+                            />
+                            <TableBody>
+                                {/* if you don't need to support IE11, you can replace the `stableSort` call with:
                  rows.slice().sort(getComparator(order, orderBy)) */}
-                            {stableSort(rows, getComparator(order, orderBy))
-                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                .map((row, index) => {
-                                    const isItemSelected = isSelected(row.name);
-                                    const labelId = `enhanced-table-checkbox-${index}`;
+                                {stableSort(rows, getComparator(order, orderBy))
+                                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                    .map((row, index) => {
+                                        const isItemSelected = isSelected(row.name);
+                                        const labelId = `enhanced-table-checkbox-${index}`;
 
-                                    return (
-                                        <TableRow
-                                            hover
-                                            onClick={(event) => handleClick(event, row.userid)}
-                                            role="checkbox"
-                                            aria-checked={isItemSelected}
-                                            tabIndex={-1}
-                                            key={row.userid}
-                                            selected={isItemSelected}
-                                        >
-                                            <TableCell padding="checkbox">
-                                                <Checkbox
-                                                    color="primary"
-                                                    checked={isItemSelected}
-                                                    inputProps={{
-                                                        'aria-labelledby': labelId,
-                                                    }}
-                                                />
-                                            </TableCell>
-                                            <TableCell
-                                                component="th"
-                                                id={labelId}
-                                                scope="row"
-                                                padding="none"
+                                        return (
+                                            <TableRow
+                                                hover
+                                                onClick={(event) => handleClick(event, row.commercialid)}
+                                                role="checkbox"
+                                                aria-checked={isItemSelected}
+                                                tabIndex={-1}
+                                                key={row.commercialid}
+                                                selected={isItemSelected}
                                             >
-                                                {row.userid}
-                                            </TableCell>
-                                            <TableCell align="right">{row.nom}</TableCell>
-                                            <TableCell align="right">{row.prenom}</TableCell>
-                                            <TableCell align="right">{row.adresse}</TableCell>
-                                            <TableCell align="right">{row.cp}</TableCell>
-                                            <TableCell align="right">{row.ville}</TableCell>
-                                            <TableCell align="right">{row.email}</TableCell>
-                                        </TableRow>
-                                    );
-                                })}
-                            {emptyRows > 0 && (
-                                <TableRow
-                                    style={{
-                                        height: (dense ? 33 : 53) * emptyRows,
+                                                <TableCell padding="checkbox">
+                                                    <Checkbox
+                                                        color="primary"
+                                                        checked={isItemSelected}
+                                                        inputProps={{
+                                                            'aria-labelledby': labelId,
+                                                        }}
+                                                    />
+                                                </TableCell>
+                                                <TableCell
+                                                    component="th"
+                                                    id={labelId}
+                                                    scope="row"
+                                                    padding="none"
+                                                >
+                                                    {row.userid}
+                                                </TableCell>
+                                                <TableCell align="right">{row.nom}</TableCell>
+                                                <TableCell align="right">{row.prenom}</TableCell>
+                                                <TableCell align="right">{row.adresse}</TableCell>
+                                                <TableCell align="right">{row.cp}</TableCell>
+                                                <TableCell align="right">{row.ville}</TableCell>
+                                                <TableCell align="right">{row.email}</TableCell>
+                                            </TableRow>
+                                        );
+                                    })}
+                                {emptyRows > 0 && (
+                                    <TableRow
+                                        style={{
+                                            height: (dense ? 33 : 53) * emptyRows,
 
 
-                                    }}
-                                >
-                                    <TableCell colSpan={6} />
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <TablePagination
-                    rowsPerPageOptions={[5, 10, 25]}
-                    component="div"
-                    count={rows.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                />
-            </Paper>
-            {/*<FormControlLabel*/}
-            {/*    control={<Switch checked={dense} onChange={handleChangeDense} />}*/}
-            {/*    label="Dense padding"*/}
-            {/*/>*/}
+                                        }}
+                                    >
+                                        <TableCell colSpan={6} />
+                                    </TableRow>
+                                )}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <TablePagination
+                        rowsPerPageOptions={[5, 10, 25]}
+                        component="div"
+                        count={rows.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                    />
+                </Paper>
+                {/*<FormControlLabel*/}
+                {/*    control={<Switch checked={dense} onChange={handleChangeDense} />}*/}
+                {/*    label="Dense padding"*/}
+                {/*/>*/}
             </Box>
         </div>
     );

@@ -27,7 +27,7 @@ const PrivateRoute = ({ children }) => {
 
     const authed = user != undefined
 
-    return (authed && user['role'] == "CLIENT") ? children : <Navigate to="/login" />;
+    return authed ? children : <Navigate to="/login" />;
 }
 
 export default PrivateRoute;

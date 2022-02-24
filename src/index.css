@@ -250,7 +250,7 @@ code {
   min-width: 80px;
   min-height: 80px;
   font-size: small;
-   
+  padding:10px; 
 }
 
 /* Solde css */

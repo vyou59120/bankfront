@@ -8,7 +8,9 @@ export const userService = {
     getAll,
     getById,
     update,
-    delete: _delete
+    delete: _delete,
+    getAllCommerciaux,
+    registerCommercial
 };
 
 function Login(Email, Motdepasse) {
@@ -68,6 +70,15 @@ function getAll() {
     return fetch(`${apiUrl}/Users`, requestOptions).then(handleResponse);
 }
 
+function getAllCommerciaux() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Commercials`, requestOptions).then(handleResponse);
+}
+
 function getById(id) {
     const requestOptions = {
         method: 'GET',
@@ -112,6 +123,16 @@ function register(user) {
     };
 
     return fetch(`${apiUrl}/Users`, requestOptions).then(handleResponse);
+}
+
+function registerCommercial(commercial) {
+    const requestOptions = {
+        method: 'POST',
+        headers: authHeader(),
+        body: JSON.stringify(commercial)
+    };
+
+    return fetch(`${apiUrl}/Commercials`, requestOptions).then(handleResponse);
 }
 
 function update(user) {

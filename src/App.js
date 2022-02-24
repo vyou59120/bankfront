@@ -17,6 +17,9 @@ import { AuthContext } from './Context/Context'
 import authentication from './Reducer/authentication.reducer'
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute'
 import IBANRIB from './IBANRIB/IBANRIB'
+import CreateUser from './CrudClient/CrudClient'
+import CreateCommercial from './CrudCommercial/CrudCommercial'
+
 
 let user = JSON.parse(localStorage.getItem('user'));
 let token = JSON.parse(localStorage.getItem('token'));
@@ -93,6 +96,22 @@ function App() {
                         element={
                             <PrivateRoute>
                                 <DashboardDirecteur />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/CrudClient"
+                        element={
+                            <PrivateRoute>
+                                <CreateUser />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/CrudCommercial"
+                        element={
+                            <PrivateRoute>
+                                <CreateCommercial />
                             </PrivateRoute>
                         }
                     />

@@ -15,7 +15,7 @@ export default function authentication(state = initialState, action) {
             return {
                 isLoggedIn: true,
                 user: action.payload,
-                message: "Authentification réussie"
+                message: ""
             };
         case "LOGOUT":
             return {

@@ -23,8 +23,8 @@ function DashboardClient() {
     
     useEffect(() => {
         getData();
-        getRevenus();
-        getDepenses();
+        //getRevenus();
+        //getDepenses();
     }, [])
 
     const getData = () => {
@@ -33,6 +33,8 @@ function DashboardClient() {
             .then(
                 data => {
                     setAccount(data)
+                    getRevenus(data[0]['accounts'][0]['accountid']);
+                    getDepenses(data[0]['accounts'][0]['accountid']);
                 },
                 error => {
                     console.log(error)
@@ -40,12 +42,14 @@ function DashboardClient() {
             );
     }
 
-    const getRevenus = () => {
+    const getRevenus = (accountid) => {
 
-        transactionsService.getByCredit()
+        transactionsService.getByCredit(accountid)
             .then(
                 data => {
                     setRevenus(data)
+                    console.log(account)
+                   /* getDepenses(account[0]['accounts'][0]['accountid']);*/
                 },
                 error => {
                     console.log(error)
@@ -53,9 +57,9 @@ function DashboardClient() {
             );
     }
 
-    const getDepenses = () => {
+    const getDepenses = (accountid) => {
 
-        transactionsService.getByDebit()
+        transactionsService.getByDebit(accountid)
             .then(
                 data => {
                     setDepenses(data)
@@ -71,10 +75,10 @@ function DashboardClient() {
             <NestedList className='menuContainer'/>
             <div className='mainContainer' id='mainContainer'>
                 <div className='ClientStats' >
-                    <Histogramme />
+                    {account && <Histogramme data={account} />}
                     {account && <Solde solde={account[0]['accounts'][0]['solde']} />}
-                    <Camembert data={revenus} titre={"Revenus"}/>
-                    <Camembert data={depenses} titre={"Dépenses"}/>
+                    {revenus && <Camembert data={revenus} titre={"Revenus"} />}
+                    {depenses && <Camembert data={depenses} titre={"Dépenses"} />}
                 </div>
                 {/*<EnhancedTable className='tableContainer' />*/}
             </div>

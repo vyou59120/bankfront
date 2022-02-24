@@ -23,7 +23,7 @@ import { AuthContext } from '../../Context/Context'
 export default function NestedList() {
 
     const { state } = React.useContext(AuthContext);
- 
+
     const [listeClients, setListeClients] = React.useState(true);
     const [open, setOpen] = React.useState(true);
     const navigate = useNavigate();
@@ -37,7 +37,7 @@ export default function NestedList() {
         setListeClients(false);
     };
 
-    const handleDashboard = () => {
+    const handleDashboardClient = () => {
         navigate('/DashboardClient')
     };
 
@@ -50,11 +50,23 @@ export default function NestedList() {
     };
 
     const handleCreateClient = () => {
-        navigate('/DashboardClient')
+        navigate('/CrudClient')
     };
 
     const handleListeClients = () => {
         navigate('/DashboardCommercial')
+    };
+
+    const handleListeClommerciaux = () => {
+        navigate('/DashboardCommercial')
+    };
+
+    const handleDashboardDirecteur = () => {
+        navigate('/DashboardDirecteur')
+    };
+
+    const handleCreateCommercial = () => {
+        navigate('/CrudCommercial')
     };
 
     return (
@@ -68,13 +80,20 @@ export default function NestedList() {
                 </ListSubheader>
             }
         >
+            {(state['user']['role'] == "ADMIN") &&
+                <ListItemButton onClick={handleDashboardDirecteur}>
+                    <ListItemIcon>
+                    <AppsIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Dashboard" />
+                </ListItemButton>}
             {state['user']['role'] == "CLIENT" && <ListItemButton onClick={handleReleve}>
                 <ListItemIcon>
                     <ArticleIcon />
                 </ListItemIcon>
                 <ListItemText primary="Relevé de compte" />
             </ListItemButton>}
-            {state['user']['role'] == "CLIENT" && <ListItemButton onClick={handleDashboard}>
+            {state['user']['role'] == "CLIENT" && <ListItemButton onClick={handleDashboardClient}>
                 <ListItemIcon>
                     <AppsIcon />
                 </ListItemIcon>
@@ -86,7 +105,7 @@ export default function NestedList() {
                 </ListItemIcon>
                 <ListItemText primary="IBAN/RIB" />
             </ListItemButton>}
-            {(state['user']['role'] == "STAFF" || state['user']['role'] == "ADMIN") &&
+            {(state['user']['role'] == "STAFF") &&
              <ListItemButton onClick={handleListeClients}>
                 <ListItemIcon>
                     <FormatListNumberedIcon />
@@ -99,7 +118,14 @@ export default function NestedList() {
                     <FormatListNumberedIcon />
                 </ListItemIcon>
                 <ListItemText primary="Créer Client" />
-            </ListItemButton>}
+                </ListItemButton>}
+            {(state['user']['role'] == "ADMIN") &&
+                <ListItemButton onClick={handleCreateCommercial}>
+                    <ListItemIcon>
+                        <FormatListNumberedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Créer Commercial" />
+                </ListItemButton>}
             <ListItemButton onClick={handleClick}>
                 <ListItemIcon>
                     <DraftsIcon />

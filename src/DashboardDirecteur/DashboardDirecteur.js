@@ -9,6 +9,8 @@ import Container from '@mui/material/Container';
 import { accountService } from '../Services/account_services';
 import { AuthContext } from '../Context/Context'
 import { transactionsService } from '../Services/transaction_services';
+import ListeCommerciaux from '../Component/ListeCommerciaux/ListeCommerciaux'
+import ListeClients from '../Component/ListeClients/ListeClients'
 
 function DashboardDirecteur() {
 
@@ -24,7 +26,10 @@ function DashboardDirecteur() {
     return (
         <div className='dashboardClient' >
             <NestedList className='menuContainer' />
-            <h1>DashboardDirecteur</h1>
+            <div className='mainContainer' id='mainContainer'>
+                <ListeClients />
+                <ListeCommerciaux />
+            </div>
         </div>
     )
 }

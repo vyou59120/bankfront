@@ -10,10 +10,12 @@ import {
     ReferenceLine
 } from "recharts";
 import { transactionsService } from '../../Services/transaction_services';
+import { accountService } from '../../Services/account_services';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import './Histogramme.css'
 import Card from '@mui/material/Card';
+import { AuthContext } from '../../Context/Context'
 
 function mappArray(array) {
     
@@ -60,15 +62,34 @@ function mappArray(array) {
 
 }
 
-function Histogramme() {
+function Histogramme(props) {
+    
+    /*console.log(props.data[0]['account'][0]['accountid'])*/
+    const { state } = React.useContext(AuthContext);
 
     useEffect(() => {
+        /* getAccount(state['user']['id']);*/
+        console.log(props.data[0]['accounts'][0]['accountid'])
         getData();
     }, [])
 
+    //const getAccount = (userid) => {
+
+    //    accountService.getById(userid)
+    //        .then(
+    //            data => {
+    //                setaccountId(data[0]['accounts'][0]['accountid'])
+
+    //            },
+    //            error => {
+    //                console.log(error)
+    //            }
+    //        );
+    //}
+
     const getData = () => {
 
-        transactionsService.getByMonth()
+        transactionsService.getByMonth(props.data[0]['accounts'][0]['accountid'])
             .then(
                 data => {
                     let transactions = mappArray(data);
@@ -82,6 +103,7 @@ function Histogramme() {
     }
 
     const [data, setData] = React.useState([]);
+    const [accountId, setaccountId] = React.useState(0);
 
     return (
 

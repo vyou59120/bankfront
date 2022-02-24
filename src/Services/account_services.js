@@ -2,7 +2,8 @@ import { apiUrl } from '../Environnements';
 import { authHeader } from '../_helpers';
 
 export const accountService = {
-    getById
+    getById,
+    create
 };
 
 
@@ -13,6 +14,16 @@ function getById(id) {
     };
 
     return fetch(`${apiUrl}/Users/${id}/accounts`, requestOptions).then(handleResponse);
+}
+
+function create(user) {
+    const requestOptions = {
+        method: 'POST',
+        headers: authHeader(),
+        body: JSON.stringify(user)
+    };
+
+    return fetch(`${apiUrl}/Accounts`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

@@ -18,31 +18,31 @@ function getAll() {
     return fetch(`${apiUrl}/Transactions`, requestOptions).then(handleResponse);
 }
 
-function getByMonth() {
+function getByMonth(accountID) {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch(`${apiUrl}/Transactions/byMonth`, requestOptions).then(handleResponse);
+    return fetch(`${apiUrl}/Transactions/byMonth/${accountID}`, requestOptions).then(handleResponse);
 }
 
-function getByCredit() {
+function getByCredit(accountID) {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch(`${apiUrl}/Transactions/byCredit`, requestOptions).then(handleResponse);
+    return fetch(`${apiUrl}/Transactions/byCredit/${accountID}`, requestOptions).then(handleResponse);
 }
 
-function getByDebit() {
+function getByDebit(accountID) {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch(`${apiUrl}/Transactions/byDebit`, requestOptions).then(handleResponse);
+    return fetch(`${apiUrl}/Transactions/byDebit/${accountID}`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

@@ -16,8 +16,10 @@ import EnhancedTable from './Component/TableTransactions/TableTransactions'
 import { AuthContext } from './Context/Context'
 import authentication from './Reducer/authentication.reducer'
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute'
+import IBANRIB from './IBANRIB/IBANRIB'
 import CreateUser from './CrudClient/CrudClient'
 import CreateCommercial from './CrudCommercial/CrudCommercial'
+
 
 let user = JSON.parse(localStorage.getItem('user'));
 let token = JSON.parse(localStorage.getItem('token'));
@@ -70,6 +72,14 @@ function App() {
                         element={
                             <PrivateRoute>
                                 <ReleveCompte />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/IBANRIB"
+                        element={
+                            <PrivateRoute>
+                                <IBANRIB />
                             </PrivateRoute>
                         }
                     />

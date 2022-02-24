@@ -25,7 +25,9 @@ function DashboardCommercial() {
     return (
         <div className='dashboardClient' >
             <NestedList className='menuContainer' />
-            <ListeClients />
+            <div className='mainContainer' id='mainContainer'>
+                <ListeClients />
+            </div>
         </div>
     )
 }

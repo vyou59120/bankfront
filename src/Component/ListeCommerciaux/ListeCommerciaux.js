@@ -330,7 +330,7 @@ export default function ListeCommerciaux() {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
     return (
-        <div className='mainContainer' id='mainContainer'>
+        <div className='' id=''>
             <Box sx={{ width: '100%', color: 'sucess' }}>
                 <Paper id="tableList" sx={{ width: '100%', mb: 2, borderRadius: 1 }}>
                     <EnhancedTableToolbar numSelected={selected.length} />

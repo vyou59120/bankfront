@@ -10,7 +10,8 @@ export const userService = {
     update,
     delete: _delete,
     getAllCommerciaux,
-    registerCommercial
+    registerCommercial,
+    deleteCommercial
 };
 
 function Login(Email, Motdepasse) {
@@ -77,6 +78,15 @@ function getAllCommerciaux() {
     };
 
     return fetch(`${apiUrl}/Commercials`, requestOptions).then(handleResponse);
+}
+
+function deleteCommercial(commercialId) {
+    const requestOptions = {
+        method: 'DELETE',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Commercials/${commercialId}`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {

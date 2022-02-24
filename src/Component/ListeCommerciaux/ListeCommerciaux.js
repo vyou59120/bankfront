@@ -234,16 +234,18 @@ EnhancedTableToolbar.propTypes = {
 export default function ListeCommerciaux() {
 
     const navigate = useNavigate();
+    const [resfresh, setRefresh] = React.useState(false);
 
     useEffect(() => {
         getData();
-    }, [])
+    }, [resfresh])
 
     const getData = () => {
 
         userService.getAllCommerciaux()
             .then(
                 data => {
+                    console.log(data)
                     setRows(data)
                 },
                 error => {
@@ -308,6 +310,19 @@ export default function ListeCommerciaux() {
         setDense(event.target.checked);
     };
 
+    const handleDelete = (event, commercialid) => {
+        console.log(commercialid)
+        userService.deleteCommercial(commercialid)
+            .then(
+                data => {
+                    setRefresh(true)
+                },
+                error => {
+                    console.log(error)
+                }
+            );
+    };
+
     const isSelected = (name) => selected.indexOf(name) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
@@ -315,7 +330,7 @@ export default function ListeCommerciaux() {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
     return (
-        <div className='mainContainer' id='mainContainer'>
+        <div className='' id=''>
             <Box sx={{ width: '100%', color: 'sucess' }}>
                 <Paper id="tableList" sx={{ width: '100%', mb: 2, borderRadius: 1 }}>
                     <EnhancedTableToolbar numSelected={selected.length} />
@@ -369,7 +384,7 @@ export default function ListeCommerciaux() {
                                                     scope="row"
                                                     padding="none"
                                                 >
-                                                    {row.userid}
+                                                    {row.commercialid}
                                                 </TableCell>
                                                 <TableCell align="right">{row.nom}</TableCell>
                                                 <TableCell align="right">{row.prenom}</TableCell>
@@ -377,6 +392,9 @@ export default function ListeCommerciaux() {
                                                 <TableCell align="right">{row.cp}</TableCell>
                                                 <TableCell align="right">{row.ville}</TableCell>
                                                 <TableCell align="right">{row.email}</TableCell>
+                                                <TableCell
+                                                    onClick={(event) => handleDelete(event, row.commercialid)}
+                                                    align="right">delete</TableCell>
                                             </TableRow>
                                         );
                                     })}

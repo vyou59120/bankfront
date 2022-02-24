@@ -216,7 +216,7 @@ export default function CreateUser() {
                         {searching && <Box sx={{ display: 'flex' }}>
                             <CircularProgress />
                         </Box>}
-                        Créer
+                        CrÃ©er
                     </Button>
                 </Box>
             </Box>

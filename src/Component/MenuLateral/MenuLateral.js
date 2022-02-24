@@ -41,6 +41,10 @@ export default function NestedList() {
         navigate('/DashboardClient')
     };
 
+    const handleIBAN = () => {
+        navigate('/IBANRIB')
+    };
+
     const handleClients = () => {
         navigate('/DashboardClient')
     };
@@ -95,7 +99,7 @@ export default function NestedList() {
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
             </ListItemButton>}
-            {state['user']['role'] == "CLIENT" && <ListItemButton>
+            {state['user']['role'] == "CLIENT" && <ListItemButton onClick={handleIBAN}>
                 <ListItemIcon>
                     <PictureAsPdfIcon />
                 </ListItemIcon>
@@ -137,12 +141,7 @@ export default function NestedList() {
                         </ListItemIcon>
                         <ListItemText primary="Conseiller" />
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 4 }}>
-                        <ListItemIcon>
-                            <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText primary="Accueil" />
-                    </ListItemButton>
+                    
                 </List>
             </Collapse>
         </List>

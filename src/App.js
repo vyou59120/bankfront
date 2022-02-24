@@ -15,9 +15,13 @@ import { ReleveCompte } from './ReleveCompte/ReleveCompte'
 import EnhancedTable from './Component/TableTransactions/TableTransactions'
 import { AuthContext } from './Context/Context'
 import authentication from './Reducer/authentication.reducer'
-import PrivateRoute from './Component/PrivateRoute/PrivateRoute'
+import PrivateRoute from './Component/PrivateRoutes/PrivateRoute'
+import PrivateRouteDirecteur from './Component/PrivateRoutes/PrivateRouteDirecteur'
+import PrivateRouteCommercial from './Component/PrivateRoutes/PrivateRouteCommercial'
+import IBANRIB from './IBANRIB/IBANRIB'
 import CreateUser from './CrudClient/CrudClient'
 import CreateCommercial from './CrudCommercial/CrudCommercial'
+
 
 let user = JSON.parse(localStorage.getItem('user'));
 let token = JSON.parse(localStorage.getItem('token'));
@@ -74,19 +78,27 @@ function App() {
                         }
                     />
                     <Route
-                        path="/DashboardCommercial"
+                        path="/IBANRIB"
                         element={
                             <PrivateRoute>
-                                <DashboardCommercial />
+                                <IBANRIB />
                             </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/DashboardCommercial"
+                        element={
+                            <PrivateRouteCommercial>
+                                <DashboardCommercial />
+                            </PrivateRouteCommercial>
                         }
                     />
                     <Route
                         path="/DashboardDirecteur"
                         element={
-                            <PrivateRoute>
+                            <PrivateRouteDirecteur>
                                 <DashboardDirecteur />
-                            </PrivateRoute>
+                            </PrivateRouteDirecteur>
                         }
                     />
                     <Route

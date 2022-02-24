@@ -76,11 +76,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### npm install @mui/lab
 ### npm install date-fns
 
-### ou
-### npm install @date-io/date-fns
-// or for Day.js
-### npm install -s @date-io/dayjs
-// or for Luxon
-### npm install -s @date-io/luxon
-// or for Moment.js
-### npm install @date-io/moment
+### npm install --save html2canvas
+### npm install jspdf --save

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
 import NestedList from '../Component/MenuLateral/MenuLateral'
-
 import Container from '@mui/material/Container';
 import { accountService } from '../Services/account_services';
 import { AuthContext } from '../Context/Context'
 import { transactionsService } from '../Services/transaction_services';
 import Button from '@mui/material/Button';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 function IBANRIB() {
 
@@ -21,6 +21,8 @@ function IBANRIB() {
     var cleRIBmin = 24;
     var cleRIBmax = 66;
     const cleRIB = Math.floor(Math.random() * (cleRIBmax - cleRIBmin)) + cleRIBmin;
+    
+    
 
     useEffect(() => {
         getData();
@@ -41,6 +43,28 @@ function IBANRIB() {
             );
     }
 
+    const printDocument = (e, Inom) => {
+
+        e.preventDefault();
+        
+        var PDFPrenom = state['user']['prenom'];
+        var PDFnom = state['user']['nom'];
+
+        const input = document.getElementById('textContainer');
+        html2canvas(input)
+          .then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, 'JPEG', 50, 20);
+            // pdf.output('dataurlnewwindow');
+            
+            const DownloaDstr = "RIB_" + PDFPrenom + "_" + PDFnom;
+            pdf.save(DownloaDstr);
+          });
+        
+      }
+        
+
     
 
     return (
@@ -49,12 +73,16 @@ function IBANRIB() {
             <div id="ibanContainer">
                 
             
-            <h2>RELEVE D'IDENTITE BANCAIRE</h2>
-            <hr/>
+            
+            
             
             <div id="textContainer">
-            <h4>TITULAIRE</h4> 
-            {state && <p>M. {state['user']['prenom']} {state['user']['nom']}</p>}
+            <hr/>
+            
+            <h2>RELEVE D'IDENTITE BANCAIRE</h2>
+            <hr/>
+            <h4 >TITULAIRE</h4> 
+            {state && <p >M. {state['user']['prenom']} {state['user']['nom']}</p>}
             <h4>DOMICILIATION</h4> 
             {state && <p>{state['user']['adresse']} {state['user']['cp']} {state['user']['ville']}</p>}
             
@@ -76,13 +104,13 @@ function IBANRIB() {
             {account && <p>FR59 {codeBank} 000{cleRIB} {account[0]['accounts'][0]['numaccount']} {cleRIB}</p>}
             <h4>CODE BIC /CODE SWIFT</h4>
             <p>VEROBANKFRTT765</p>
-
+            <hr/>
 
             
             
             </div>
             <br/>
-           <Button variant="contained">Imprimer RIB</Button>
+           <Button variant="contained" onClick={printDocument}>Imprimer RIB</Button>
             </div>
         </div>
     )

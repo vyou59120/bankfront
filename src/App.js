@@ -18,8 +18,11 @@ import authentication from './Reducer/authentication.reducer'
 import PrivateRoute from './Component/PrivateRoutes/PrivateRoute'
 import PrivateRouteDirecteur from './Component/PrivateRoutes/PrivateRouteDirecteur'
 import PrivateRouteCommercial from './Component/PrivateRoutes/PrivateRouteCommercial'
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute'
+import IBANRIB from './IBANRIB/IBANRIB'
 import CreateUser from './CrudClient/CrudClient'
 import CreateCommercial from './CrudCommercial/CrudCommercial'
+
 
 let user = JSON.parse(localStorage.getItem('user'));
 let token = JSON.parse(localStorage.getItem('token'));
@@ -72,6 +75,14 @@ function App() {
                         element={
                             <PrivateRoute>
                                 <ReleveCompte />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/IBANRIB"
+                        element={
+                            <PrivateRoute>
+                                <IBANRIB />
                             </PrivateRoute>
                         }
                     />

@@ -252,3 +252,48 @@ code {
   font-size: small;
    
 }
+
+/* Solde css */
+
+#ibanContainer
+{
+  
+  width: fit-content;
+  height: max-content;
+  padding: 3rem;
+  margin: 3rem;
+  
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+ 
+  
+  font-size: larger;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+}
+#IBANRIB
+{
+  background: rgb(200, 205, 230);
+  
+  
+  height: 100%;
+  display: flex;
+  
+
+}
+
+#ibanCard
+{
+ background: rgb(165, 165, 165);
+ padding: 5rem;
+ margin: 3rem;
+
+}
+
+#textContainer
+{
+  text-align: left;
+  line-height: 0.3rem;
+  
+
+
+}

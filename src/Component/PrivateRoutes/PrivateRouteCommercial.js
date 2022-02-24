@@ -16,7 +16,7 @@ import { AuthContext } from '../../Context/Context'
 //    )
 //}
 
-const PrivateRoute = ({ children }) => {
+const PrivateRouteCommercial = ({ children }) => {
 
     let user = JSON.parse(localStorage.getItem('user'));
     let token = JSON.parse(localStorage.getItem('token'));
@@ -27,7 +27,7 @@ const PrivateRoute = ({ children }) => {
 
     const authed = user != undefined
 
-    return authed ? children : <Navigate to="/login" />;
+    return (authed && user['role'] == "STAFF") ? children : <Navigate to="/login" />;
 }
 
-export default PrivateRoute;
+export default PrivateRouteCommercial;

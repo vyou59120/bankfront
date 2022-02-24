@@ -15,7 +15,9 @@ import { ReleveCompte } from './ReleveCompte/ReleveCompte'
 import EnhancedTable from './Component/TableTransactions/TableTransactions'
 import { AuthContext } from './Context/Context'
 import authentication from './Reducer/authentication.reducer'
-import PrivateRoute from './Component/PrivateRoute/PrivateRoute'
+import PrivateRoute from './Component/PrivateRoutes/PrivateRoute'
+import PrivateRouteDirecteur from './Component/PrivateRoutes/PrivateRouteDirecteur'
+import PrivateRouteCommercial from './Component/PrivateRoutes/PrivateRouteCommercial'
 import CreateUser from './CrudClient/CrudClient'
 import CreateCommercial from './CrudCommercial/CrudCommercial'
 
@@ -76,17 +78,17 @@ function App() {
                     <Route
                         path="/DashboardCommercial"
                         element={
-                            <PrivateRoute>
+                            <PrivateRouteCommercial>
                                 <DashboardCommercial />
-                            </PrivateRoute>
+                            </PrivateRouteCommercial>
                         }
                     />
                     <Route
                         path="/DashboardDirecteur"
                         element={
-                            <PrivateRoute>
+                            <PrivateRouteDirecteur>
                                 <DashboardDirecteur />
-                            </PrivateRoute>
+                            </PrivateRouteDirecteur>
                         }
                     />
                     <Route

@@ -115,12 +115,7 @@ export default function NestedList() {
                         </ListItemIcon>
                         <ListItemText primary="Conseiller" />
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 4 }}>
-                        <ListItemIcon>
-                            <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText primary="Accueil" />
-                    </ListItemButton>
+                    
                 </List>
             </Collapse>
         </List>

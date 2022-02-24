@@ -1,13 +1,254 @@
+html{
+    height: 100%;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    height: 100%;
+   
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#App {
+  
+  text-align: center;
+}
+
+#logo1
+{
+  background: rgb(255, 255, 255);
+  color: rgb(25, 118, 210);
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+  
+  
+  padding: 1rem;
+  padding-right: 0%;
+}
+#logo2
+{
+  background: rgb(15, 15, 49);
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ 
+  padding: 1rem;
+  padding-left: 0%;
+}
+
+#userIcon
+{
+  min-width: 300px;
+
+
+}
+
+
+
+#bodyContainer {
+  
+  position: relative;
+  left: 293px;
+  
+}
+
+#bodyPage {
+  display: flex;
+  height: 100%;
+  
+
+  background-color: rgb(224, 224, 224);
+
+}
+
+#titleBonjour
+{
+  font-size: 1.5rem;
+  
+
+
+}
+
+#upBarContainer {
+  
+  
+  width: auto;
+
+  
+
+}
+
+#navbarContainer {
+
+  background: rgb(170, 177, 207);
+  
+}
+
+#tableContainer {
+   background: rgb(190, 186, 186);
+  border-radius: 24px;
+  margin: 5rem;
+  width: 40%;
+  height: 800px;
+  border-radius: 4px;
+ 
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+
+}
+
+#tableHead {
+  background: rgb(164, 160, 189);
+}
+
+#tableList {
+  background: rgb(200, 205, 230);
+}
+
+#table {
+  background: rgb(190, 186, 186);
+  border-radius: 8px;
+
+}
+
+#tableHisto {
+  background: rgb(190, 186, 186);
+  border-radius: 8px;
+  width: 30%;
+  
+
+}
+
+#histoComponent
+{
+  background: rgb(200, 205, 230);
+  border-radius: 8px;
+  padding: 1rem;
+  
+  font-size: larger;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+}
+
+#bouttonPDF {
+  margin-top: 80%;
+}
+
+#toolBar {
+  background: rgb(149, 198, 243);
+}
+
+/* DashboardClient css */
+
+#dasboardClient
+{
+
+  background: red;
+  
+
+}
+
+#mainContainer
+{
+  background: rgb(219, 219, 219);
+  margin: 0px;
+  padding: 2rem;
+  height: auto;
+}
+
+/* Camembert css */
+
+#titleCamembert
+{
+  background: rgb(63, 132, 197);
+  font-size: larger;
+  color: rgb(255, 255, 255);
+
+
+}
+
+#camembert
+{
+  background: rgb(255, 255, 255);
+  min-height: 300px;
+  
+
+}
+
+#contentCamembert
+{
+  justify-content: center;
+  padding: 1rem;
+
+  
+  
+  position: inherit;
+
+}
+/* Histogramme css */
+
+#histoContainer
+{
+  background: rgb(255, 255, 255);
+  
+  border-radius: 8px;
+
+
+}
+#titleHisto
+{
+  background: rgb(63, 132, 197);
+  
+  font-size: larger;
+  
+  color: rgb(255, 255, 255);
+
+}
+
+/* Solde css */
+
+#titleSolde
+{
+  background: rgb(63, 132, 197);
+  
+  font-size: larger;
+  color: rgb(255, 255, 255);
+
+}
+
+
+
+#valueSolde
+{
+  background: rgb(40, 167, 69);
+  border-radius: 8px;
+  padding: 1rem;
+
+  color: rgb(255, 255, 255);
+}
+
+#avatar
+{
+  
+  min-width: 80px;
+  min-height: 80px;
+  font-size: small;
+   
 }

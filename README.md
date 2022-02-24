@@ -68,3 +68,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### npm i react-router-dom
+### npm install @material-ui/core
+### npm i @mui/icons-material
+### npm install recharts
+### npm install @mui/lab
+### npm install date-fns
+
+### ou
+### npm install @date-io/date-fns
+// or for Day.js
+### npm install -s @date-io/dayjs
+// or for Luxon
+### npm install -s @date-io/luxon
+// or for Moment.js
+### npm install @date-io/moment

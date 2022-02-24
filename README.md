@@ -76,5 +76,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### npm install @mui/lab
 ### npm install date-fns
 
-### npm install --save html2canvas
-### npm install jspdf --save
+### npm install html2canvas
+### npm install jspdf 

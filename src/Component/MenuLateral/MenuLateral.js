@@ -23,7 +23,7 @@ import { AuthContext } from '../../Context/Context'
 export default function NestedList() {
 
     const { state } = React.useContext(AuthContext);
-    console.log(state)
+
     const [listeClients, setListeClients] = React.useState(true);
     const [open, setOpen] = React.useState(true);
     const navigate = useNavigate();
@@ -46,7 +46,7 @@ export default function NestedList() {
     };
 
     const handleCreateClient = () => {
-        navigate('/DashboardClient')
+        navigate('/CrudClient')
     };
 
     const handleListeClients = () => {
@@ -59,6 +59,10 @@ export default function NestedList() {
 
     const handleDashboardDirecteur = () => {
         navigate('/DashboardDirecteur')
+    };
+
+    const handleCreateCommercial = () => {
+        navigate('/CrudCommercial')
     };
 
     return (
@@ -110,6 +114,13 @@ export default function NestedList() {
                     <FormatListNumberedIcon />
                 </ListItemIcon>
                 <ListItemText primary="Créer Client" />
+                </ListItemButton>}
+            {(state['user']['role'] == "ADMIN") &&
+                <ListItemButton onClick={handleCreateCommercial}>
+                    <ListItemIcon>
+                        <FormatListNumberedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Créer Commercial" />
                 </ListItemButton>}
             <ListItemButton onClick={handleClick}>
                 <ListItemIcon>

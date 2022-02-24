@@ -244,11 +244,6 @@ export default function ListeClients() {
         userService.getAll()
             .then(
                 data => {
-                    console.log(data)
-                    //let transactions = data;
-                    //transactions.map(function (transaction) {
-                    //    return transaction.date = new Date(transaction.date).toLocaleDateString("fr")
-                    //});
                     setRows(data)
                 },
                 error => {

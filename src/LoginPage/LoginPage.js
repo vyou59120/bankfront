@@ -31,6 +31,8 @@ function LoginPage() {
         dispatch({
             type: "LOGOUT"
         })
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
     }, []);
 
     function handleSubmit(e) {

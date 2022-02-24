@@ -136,7 +136,7 @@ const ResponsiveAppBar = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Ouvrir options">
                             <IconButton  onClick={handleOpenUserMenu} sx={{ p: 4  }}>
-                            { state['isLoggedIn'] &&<Avatar  id='avatar' alt="John Doe" src="/static/images/avatar/2.jpg">{}{state['user']['prenom']} {state['user']['nom']}</Avatar>}
+                            { state['isLoggedIn'] &&<Avatar  id='avatar' alt="John Doe" src="">{}{state['user']['prenom']} {state['user']['nom']}</Avatar>}
                             </IconButton>
                         </Tooltip>
                         <Menu

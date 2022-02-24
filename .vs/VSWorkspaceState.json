@@ -3,12 +3,7 @@
     "",
     "\\src",
     "\\src\\Component",
-    "\\src\\Component\\ListeClients",
-    "\\src\\Component\\MenuLateral",
-    "\\src\\Component\\PrivateRoute",
-    "\\src\\DashboardClient",
-    "\\src\\ReleveCompte",
-    "\\src\\Services"
+    "\\src\\Component\\ListeClients"
   ],
   "SelectedNode": "\\src\\Component\\ListeClients\\ListeClients.js",
   "PreviewInSolutionExplorer": false

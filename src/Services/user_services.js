@@ -9,7 +9,8 @@ export const userService = {
     getById,
     update,
     delete: _delete,
-    getAllCommerciaux
+    getAllCommerciaux,
+    registerCommercial
 };
 
 function Login(Email, Motdepasse) {
@@ -122,6 +123,16 @@ function register(user) {
     };
 
     return fetch(`${apiUrl}/Users`, requestOptions).then(handleResponse);
+}
+
+function registerCommercial(commercial) {
+    const requestOptions = {
+        method: 'POST',
+        headers: authHeader(),
+        body: JSON.stringify(commercial)
+    };
+
+    return fetch(`${apiUrl}/Commercials`, requestOptions).then(handleResponse);
 }
 
 function update(user) {

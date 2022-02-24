@@ -128,15 +128,15 @@ function EnhancedTableHead(props) {
 
             <TableRow>
                 <TableCell padding="checkbox"  >
-                    {/*<Checkbox*/}
-                    {/*    color="primary"
-                    {/*    indeterminate={numSelected > 0 && numSelected < rowCount}*/}
-                    {/*    checked={rowCount > 0 && numSelected === rowCount}*/}
-                    {/*    onChange={onSelectAllClick}*/}
-                    {/*    inputProps={{*/}
-                    {/*        'aria-label': 'select all desserts',*/}
-                    {/*    }}*/}
-                    {/*/>*/}
+                    <Checkbox
+                        color="primary"
+                        indeterminate={numSelected > 0 && numSelected < rowCount}
+                        checked={rowCount > 0 && numSelected === rowCount}
+                        onChange={onSelectAllClick}
+                        inputProps={{
+                            'aria-label': 'select all desserts',
+                        }}
+                    />
                 </TableCell>
                 {headCells.map((headCell) => (
                     <TableCell
@@ -293,7 +293,6 @@ export default function ListeCommerciaux() {
         }
 
         setSelected(newSelected);
-        navigate('/ReleveCompte/' + name)
     };
 
     const handleChangePage = (event, newPage) => {
